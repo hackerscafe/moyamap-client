@@ -18,7 +18,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setUserInteractionEnabled:YES];
-        // Initialization code
     }
     return self;
 }
@@ -38,6 +37,7 @@
     [_title setTextAlignment:NSTextAlignmentCenter];
     _title.numberOfLines = 0;
     [self adjustTitle];
+    [self randomPosition];
     [self addSubview:_image];
     [self addSubview:_title];
     return self;
@@ -72,6 +72,17 @@
     [self setFrame:frame];
 }
 
+/*
+ // set random position
+ */
+-(void)randomPosition{
+    int x = arc4random()% (int)(SCREEN_BOUNDS.size.width - _image.frame.size.width);
+    int y = arc4random()% (int)(SCREEN_BOUNDS.size.height - _image.frame.size.height);
+    CGRect frame = self.frame;
+    frame.origin.x = x;
+    frame.origin.y = y;
+    self.frame = frame;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

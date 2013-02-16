@@ -14,5 +14,6 @@
 @property(nonatomic,strong) UIImageView *image;
 @property(nonatomic,strong) UILabel *title;
 -(id)initWithTitle:(NSString*)title;
+-(void)randomPosition;
 
 @end

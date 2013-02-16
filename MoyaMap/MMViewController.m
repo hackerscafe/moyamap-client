@@ -39,7 +39,11 @@
 - (void)addMoya{
     
     MMMoyaImage *moya = [[MMMoyaImage alloc] initWithTitle:@"定員が可愛い"];
+    MMMoyaImage *moya2 = [[MMMoyaImage alloc] initWithTitle:@"ラーメン"];
+    MMMoyaImage *moya3 = [[MMMoyaImage alloc] initWithTitle:@"ハックデイ"];
     [_map addSubview:moya];
+    [_map addSubview:moya2];
+    [_map addSubview:moya3];
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
