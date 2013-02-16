@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <YMapKit/YMapKit.h> //YMapKit.frameworkのヘッダーファイルをインポート
 
-@interface MMViewController : UIViewController
+@interface MMViewController : UIViewController<YMKMapViewDelegate>
+@property (weak, nonatomic) IBOutlet UIView *overlayView;
 
 @end
