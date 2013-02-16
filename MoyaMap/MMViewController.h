@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <YMapKit/YMapKit.h> //YMapKit.frameworkのヘッダーファイルをインポート
+#import "MMMoyaImage.h"
 
-@interface MMViewController : UIViewController<YMKMapViewDelegate,UITextFieldDelegate>
+@interface MMViewController : UIViewController<YMKMapViewDelegate,UITextFieldDelegate,MMMoyaImageDelegate>
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 @property (weak, nonatomic) IBOutlet UITextField *searchText;
 

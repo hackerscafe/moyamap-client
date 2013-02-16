@@ -31,6 +31,11 @@
     }
     return self;
 }
+-(id)initWithTitle:(NSString*)title andDelegate:(id<MMMoyaImageDelegate>)delegate{
+    self = [self initWithTitle:title];
+    self.delegate = delegate;
+    return self;
+}
 - (id) initWithTitle:(NSString *)title{
     self = [self initWithFrame:CGRectZero];
     self.image = [[UIImageView alloc] initWithImage:_image_off];
@@ -68,10 +73,12 @@
     _title.frame = frame;
 }
 - (void)selectTag{
-    [UIView animateWithDuration:0.5f animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
         self.transform = CGAffineTransformMakeScale(4, 4);
-
+    } completion:^(BOOL finished){
+        [_delegate moyaTouched:self];
     }];
+    
 }
 #pragma mark -
 #pragma mark touches

@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MMMoyaImageDelegate <NSObject>
+
+-(void)moyaTouched:(id)moya;
+
+@end
 
 @interface MMMoyaImage : UIView{
 }
+@property(nonatomic,unsafe_unretained) id<MMMoyaImageDelegate> delegate;
 @property(nonatomic,strong) UIImageView *image;
 @property(nonatomic,strong) UILabel *title;
 -(id)initWithTitle:(NSString*)title;
+-(id)initWithTitle:(NSString*)title andDelegate:(id<MMMoyaImageDelegate>)delegate;
 -(void)randomPosition;
 
 @end

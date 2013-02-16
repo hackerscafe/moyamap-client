@@ -8,7 +8,6 @@
 
 #import "MMViewController.h"
 #import "MMCommon.h"
-#import "MMMoyaImage.h"
 
 @interface MMViewController (){
     YMKMapView *_map;
@@ -38,9 +37,9 @@
 }
 - (void)addMoya{
     
-    MMMoyaImage *moya = [[MMMoyaImage alloc] initWithTitle:@"定員が可愛い"];
-    MMMoyaImage *moya2 = [[MMMoyaImage alloc] initWithTitle:@"ラーメン"];
-    MMMoyaImage *moya3 = [[MMMoyaImage alloc] initWithTitle:@"ハックデイ"];
+    MMMoyaImage *moya = [[MMMoyaImage alloc] initWithTitle:@"定員が可愛い" andDelegate:self];
+    MMMoyaImage *moya2 = [[MMMoyaImage alloc] initWithTitle:@"ラーメン" andDelegate:self];
+    MMMoyaImage *moya3 = [[MMMoyaImage alloc] initWithTitle:@"ハックデイ" andDelegate:self];
     [_map addSubview:moya];
     [_map addSubview:moya2];
     [_map addSubview:moya3];
@@ -49,6 +48,14 @@
     [textField resignFirstResponder];
     return NO;
 }
+
+#pragma mark -
+#pragma mark MMMoyaImageDelegate
+-(void)moyaTouched:(id)moya{
+    [self performSegueWithIdentifier:@"showTagView" sender:self];
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
