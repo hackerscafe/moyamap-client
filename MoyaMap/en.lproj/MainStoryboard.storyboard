@@ -13,21 +13,20 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="Iab-FF-5X4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="550"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Wl4-ZT-y7V">
-                                        <rect key="frame" x="31" y="20" width="217" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="場所を検索" minimumFontSize="17" id="Wl4-ZT-y7V">
+                                        <rect key="frame" x="31" y="7" width="217" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="2" id="WzT-id-Nu8"/>
+                                        </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="search_button.png" id="6FJ-x5-WNa">
-                                        <rect key="frame" x="7" y="24" width="22" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="moya.png" id="g9E-el-kb6">
-                                        <rect key="frame" x="69" y="113" width="160" height="160"/>
+                                        <rect key="frame" x="7" y="11" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -37,6 +36,7 @@
                     </view>
                     <connections>
                         <outlet property="overlayView" destination="Iab-FF-5X4" id="5X7-P6-Mpb"/>
+                        <outlet property="searchText" destination="Wl4-ZT-y7V" id="ZBH-e1-4wG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -44,7 +44,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="moya.png" width="160" height="160"/>
         <image name="search_button.png" width="32" height="32"/>
     </resources>
     <classes>
@@ -52,6 +51,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MMViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="overlayView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="searchText" candidateClass="UITextField"/>
             </relationships>
         </class>
     </classes>

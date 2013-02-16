@@ -8,7 +8,7 @@
 
 #import "MMViewController.h"
 #import "MMCommon.h"
-
+#import "MMMoyaImage.h"
 
 @interface MMViewController (){
     YMKMapView *_map;
@@ -34,16 +34,16 @@
     center.longitude = 139.7310058;
     _map.region = YMKCoordinateRegionMake(center, YMKCoordinateSpanMake(0.02, 0.02));
 
-    [self.view addSubview:_map];
+    [self.view insertSubview:_map belowSubview:self.overlayView];
 }
 - (void)addMoya{
-    UIButton *moya = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *img = [UIImage imageNamed:@"moya"];
-    CGRect rect = CGRectZero;
-    [moya setImage:img forState:UIControlStateNormal];
-    rect.size = img.size;
-    moya.frame = rect;
+    
+    MMMoyaImage *moya = [[MMMoyaImage alloc] initWithTitle:@"定員が可愛い"];
     [_map addSubview:moya];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,6 +54,8 @@
 
 - (void)viewDidUnload {
     [self setOverlayView:nil];
+    [self setSearchText:nil];
+    [self setSearchText:nil];
     [super viewDidUnload];
 }
 @end

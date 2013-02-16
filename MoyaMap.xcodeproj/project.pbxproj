@@ -66,6 +66,7 @@
 		2BBE3A1816CF4C9F00DF8344 /* search_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE3A1716CF4C9F00DF8344 /* search_button.png */; };
 		2BBE3A1B16CF4E5F00DF8344 /* moya.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE3A1916CF4E5F00DF8344 /* moya.png */; };
 		2BBE3A1C16CF4E5F00DF8344 /* moya@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE3A1A16CF4E5F00DF8344 /* moya@2x.png */; };
+		2BBE3A2016CF531E00DF8344 /* MMMoyaImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBE3A1F16CF531E00DF8344 /* MMMoyaImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,8 @@
 		2BBE3A1716CF4C9F00DF8344 /* search_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_button.png; sourceTree = "<group>"; };
 		2BBE3A1916CF4E5F00DF8344 /* moya.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moya.png; sourceTree = "<group>"; };
 		2BBE3A1A16CF4E5F00DF8344 /* moya@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moya@2x.png"; sourceTree = "<group>"; };
+		2BBE3A1E16CF531E00DF8344 /* MMMoyaImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMMoyaImage.h; path = classes/layers/MMMoyaImage.h; sourceTree = "<group>"; };
+		2BBE3A1F16CF531E00DF8344 /* MMMoyaImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMMoyaImage.m; path = classes/layers/MMMoyaImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +316,7 @@
 		2BBE3A0416CF492100DF8344 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				2BBE3A1D16CF52EF00DF8344 /* layers */,
 				2BBE3A0516CF492600DF8344 /* common */,
 			);
 			name = classes;
@@ -336,6 +340,15 @@
 				2BBE3A1A16CF4E5F00DF8344 /* moya@2x.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		2BBE3A1D16CF52EF00DF8344 /* layers */ = {
+			isa = PBXGroup;
+			children = (
+				2BBE3A1E16CF531E00DF8344 /* MMMoyaImage.h */,
+				2BBE3A1F16CF531E00DF8344 /* MMMoyaImage.m */,
+			);
+			name = layers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,6 +502,7 @@
 				2B092D8616CF0CC000D72D4E /* MMAppDelegate.m in Sources */,
 				2B092D9216CF0CC000D72D4E /* MMViewController.m in Sources */,
 				2BBE3A0816CF494400DF8344 /* MMCommon.m in Sources */,
+				2BBE3A2016CF531E00DF8344 /* MMMoyaImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
