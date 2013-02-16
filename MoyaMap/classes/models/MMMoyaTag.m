@@ -10,4 +10,18 @@
 
 @implementation MMMoyaTag
 
++ (NSString *) remoteModelName
+{
+    return @"tag";
+}
+
++ (NSString *) remoteControllerName
+{
+    return @"tag";
+}
+- (NSString *)representStringOfResult{
+    return @"objects";
+}
+
+
 @end

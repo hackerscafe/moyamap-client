@@ -8,9 +8,11 @@
 
 #import "MMViewController.h"
 #import "MMCommon.h"
+#import "MMMoyaTag.h"
 
 @interface MMViewController (){
     YMKMapView *_map;
+    NSArray *_tags;
 }
 
 @end
@@ -22,6 +24,9 @@
     [super viewDidLoad];
     [self setMap];
     [self addMoya];
+    [MMMoyaTag remoteAllAsync:^(NSArray *allRemote, NSError *error) {
+        _tags = allRemote;
+    }];
 }
 - (void)setMap{
     _map = [[YMKMapView alloc] initWithFrame:SCREEN_BOUNDS appid:YJ_APP_ID];

@@ -1,11 +1,14 @@
 
 PODS:
+- AFNetworking (1.1.0)
 - NSRails (2.0.1)
 
 DEPENDENCIES:
+- AFNetworking
 - NSRails
 
 SPEC CHECKSUMS:
+  AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
   NSRails: 6c628aa8f38fc8a1b480837c311107d9bc0f0890
 
 COCOAPODS: 0.16.0
