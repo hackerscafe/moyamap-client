@@ -42,6 +42,10 @@
 		2B6DD23C16CF758300DA082A /* btn_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DD23A16CF758300DA082A /* btn_close.png */; };
 		2B6DD23D16CF758300DA082A /* btn_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DD23B16CF758300DA082A /* btn_close@2x.png */; };
 		2B6DD24116CF75D200DA082A /* MMMoyaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6DD24016CF75D200DA082A /* MMMoyaViewController.m */; };
+		2BABF36016CF7CE7005B407B /* user1@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2BABF35E16CF7CE7005B407B /* user1@2x.jpg */; };
+		2BABF36116CF7CE7005B407B /* user1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2BABF35F16CF7CE7005B407B /* user1.jpg */; };
+		2BABF36416CF8233005B407B /* btn_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BABF36216CF8233005B407B /* btn_map.png */; };
+		2BABF36516CF8233005B407B /* btn_map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BABF36316CF8233005B407B /* btn_map@2x.png */; };
 		2BBE39D616CF48B700DF8344 /* YMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BBE39D516CF48B700DF8344 /* YMapKit.framework */; };
 		2BBE39EE16CF48CF00DF8344 /* compass48.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE39D816CF48CF00DF8344 /* compass48.png */; };
 		2BBE39EF16CF48CF00DF8344 /* compass48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE39D916CF48CF00DF8344 /* compass48@2x.png */; };
@@ -131,6 +135,10 @@
 		2B6DD23B16CF758300DA082A /* btn_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_close@2x.png"; path = "image/btn_close@2x.png"; sourceTree = "<group>"; };
 		2B6DD23F16CF75D200DA082A /* MMMoyaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMMoyaViewController.h; path = classes/controllers/MMMoyaViewController.h; sourceTree = "<group>"; };
 		2B6DD24016CF75D200DA082A /* MMMoyaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMMoyaViewController.m; path = classes/controllers/MMMoyaViewController.m; sourceTree = "<group>"; };
+		2BABF35E16CF7CE7005B407B /* user1@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "user1@2x.jpg"; path = "image/user1@2x.jpg"; sourceTree = "<group>"; };
+		2BABF35F16CF7CE7005B407B /* user1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = user1.jpg; path = image/user1.jpg; sourceTree = "<group>"; };
+		2BABF36216CF8233005B407B /* btn_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_map.png; path = image/btn_map.png; sourceTree = "<group>"; };
+		2BABF36316CF8233005B407B /* btn_map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_map@2x.png"; path = "image/btn_map@2x.png"; sourceTree = "<group>"; };
 		2BBE39D516CF48B700DF8344 /* YMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YMapKit.framework; sourceTree = "<group>"; };
 		2BBE39D816CF48CF00DF8344 /* compass48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compass48.png; path = ../ymapimage/compass48.png; sourceTree = "<group>"; };
 		2BBE39D916CF48CF00DF8344 /* compass48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compass48@2x.png"; path = "../ymapimage/compass48@2x.png"; sourceTree = "<group>"; };
@@ -311,6 +319,13 @@
 			name = controllers;
 			sourceTree = "<group>";
 		};
+		2BABF36616CF8541005B407B /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
 		2BBE39D716CF48CF00DF8344 /* ymapimage */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +359,7 @@
 		2BBE3A0416CF492100DF8344 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				2BABF36616CF8541005B407B /* models */,
 				2B6DD23E16CF75B800DA082A /* controllers */,
 				2BBE3A1D16CF52EF00DF8344 /* layers */,
 				2BBE3A0516CF492600DF8344 /* common */,
@@ -363,6 +379,10 @@
 		2BBE3A1416CF4C4800DF8344 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2BABF35E16CF7CE7005B407B /* user1@2x.jpg */,
+				2BABF35F16CF7CE7005B407B /* user1.jpg */,
+				2BABF36216CF8233005B407B /* btn_map.png */,
+				2BABF36316CF8233005B407B /* btn_map@2x.png */,
 				2B6DD23A16CF758300DA082A /* btn_close.png */,
 				2B6DD23B16CF758300DA082A /* btn_close@2x.png */,
 				2B6DD23216CF747D00DA082A /* moya_footer.png */,
@@ -509,6 +529,10 @@
 				2B6DD23916CF747D00DA082A /* moya_header@2x.png in Resources */,
 				2B6DD23C16CF758300DA082A /* btn_close.png in Resources */,
 				2B6DD23D16CF758300DA082A /* btn_close@2x.png in Resources */,
+				2BABF36016CF7CE7005B407B /* user1@2x.jpg in Resources */,
+				2BABF36116CF7CE7005B407B /* user1.jpg in Resources */,
+				2BABF36416CF8233005B407B /* btn_map.png in Resources */,
+				2BABF36516CF8233005B407B /* btn_map@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

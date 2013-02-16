@@ -77,6 +77,7 @@
         self.transform = CGAffineTransformMakeScale(4, 4);
     } completion:^(BOOL finished){
         [_delegate moyaTouched:self];
+        self.transform = CGAffineTransformMakeScale(1, 1);
     }];
     
 }
