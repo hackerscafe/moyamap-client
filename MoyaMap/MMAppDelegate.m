@@ -7,11 +7,15 @@
 //
 
 #import "MMAppDelegate.h"
+#import "NSRails.h"
+#import "MMCommon.h"
 
 @implementation MMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [NSRConfig defaultConfig].appURL = SERVER_URL;
+
     // Override point for customization after application launch.
     return YES;
 }
