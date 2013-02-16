@@ -5,9 +5,9 @@
 //  Created by Haruyuki Seki on 2/16/13.
 //  Copyright (c) 2013 Hacker's Cafe. All rights reserved.
 //
-#import "NSRails.h"
+#import "MMRemoteClass.h"
 
 
-@interface MMMoyaTag : NSRRemoteObject
+@interface MMMoyaTag : MMRemoteClass
 
 @end

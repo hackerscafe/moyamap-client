@@ -9,12 +9,13 @@
 #import "MMAppDelegate.h"
 #import "NSRails.h"
 #import "MMCommon.h"
+#import "MMRemoteConfig.h"
 
 @implementation MMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [NSRConfig defaultConfig].appURL = SERVER_URL;
+    [MMRemoteConfig defaultConfig].baseurl = SERVER_URL;
 
     // Override point for customization after application launch.
     return YES;

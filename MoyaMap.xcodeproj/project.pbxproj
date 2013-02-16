@@ -47,6 +47,8 @@
 		2BABF36416CF8233005B407B /* btn_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BABF36216CF8233005B407B /* btn_map.png */; };
 		2BABF36516CF8233005B407B /* btn_map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BABF36316CF8233005B407B /* btn_map@2x.png */; };
 		2BABF36916CF8831005B407B /* MMMoyaTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF36816CF8831005B407B /* MMMoyaTag.m */; };
+		2BABF36F16CF90CD005B407B /* MMRemoteClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF36E16CF90CD005B407B /* MMRemoteClass.m */; };
+		2BABF37216CF92B9005B407B /* MMRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF37116CF92B9005B407B /* MMRemoteConfig.m */; };
 		2BBE39D616CF48B700DF8344 /* YMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BBE39D516CF48B700DF8344 /* YMapKit.framework */; };
 		2BBE39EE16CF48CF00DF8344 /* compass48.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE39D816CF48CF00DF8344 /* compass48.png */; };
 		2BBE39EF16CF48CF00DF8344 /* compass48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE39D916CF48CF00DF8344 /* compass48@2x.png */; };
@@ -144,6 +146,10 @@
 		2BABF36316CF8233005B407B /* btn_map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_map@2x.png"; path = "image/btn_map@2x.png"; sourceTree = "<group>"; };
 		2BABF36716CF8831005B407B /* MMMoyaTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMMoyaTag.h; path = classes/models/MMMoyaTag.h; sourceTree = "<group>"; };
 		2BABF36816CF8831005B407B /* MMMoyaTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMMoyaTag.m; path = classes/models/MMMoyaTag.m; sourceTree = "<group>"; };
+		2BABF36D16CF90CD005B407B /* MMRemoteClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMRemoteClass.h; path = classes/models/MMRemoteClass.h; sourceTree = "<group>"; };
+		2BABF36E16CF90CD005B407B /* MMRemoteClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMRemoteClass.m; path = classes/models/MMRemoteClass.m; sourceTree = "<group>"; };
+		2BABF37016CF92B9005B407B /* MMRemoteConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMRemoteConfig.h; path = classes/models/MMRemoteConfig.h; sourceTree = "<group>"; };
+		2BABF37116CF92B9005B407B /* MMRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMRemoteConfig.m; path = classes/models/MMRemoteConfig.m; sourceTree = "<group>"; };
 		2BBE39D516CF48B700DF8344 /* YMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YMapKit.framework; sourceTree = "<group>"; };
 		2BBE39D816CF48CF00DF8344 /* compass48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compass48.png; path = ../ymapimage/compass48.png; sourceTree = "<group>"; };
 		2BBE39D916CF48CF00DF8344 /* compass48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compass48@2x.png"; path = "../ymapimage/compass48@2x.png"; sourceTree = "<group>"; };
@@ -333,6 +339,10 @@
 			children = (
 				2BABF36716CF8831005B407B /* MMMoyaTag.h */,
 				2BABF36816CF8831005B407B /* MMMoyaTag.m */,
+				2BABF36D16CF90CD005B407B /* MMRemoteClass.h */,
+				2BABF36E16CF90CD005B407B /* MMRemoteClass.m */,
+				2BABF37016CF92B9005B407B /* MMRemoteConfig.h */,
+				2BABF37116CF92B9005B407B /* MMRemoteConfig.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -600,6 +610,8 @@
 				2BBE3A2016CF531E00DF8344 /* MMMoyaImage.m in Sources */,
 				2B6DD24116CF75D200DA082A /* MMMoyaViewController.m in Sources */,
 				2BABF36916CF8831005B407B /* MMMoyaTag.m in Sources */,
+				2BABF36F16CF90CD005B407B /* MMRemoteClass.m in Sources */,
+				2BABF37216CF92B9005B407B /* MMRemoteConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

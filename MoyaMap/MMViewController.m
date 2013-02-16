@@ -24,8 +24,8 @@
     [super viewDidLoad];
     [self setMap];
     [self addMoya];
-    [MMMoyaTag remoteAllAsync:^(NSArray *allRemote, NSError *error) {
-        _tags = allRemote;
+    [MMMoyaTag fetchAsync:^(NSArray *allRemote, NSError *error) {
+        NSLog(@"hoge");
     }];
 }
 - (void)setMap{

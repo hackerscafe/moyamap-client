@@ -10,7 +10,7 @@
 #define YJ_APP_ID @"dj0zaiZpPVR0bTF3SUpLVXhuOCZkPVlXazlkSEp0UTAxVU4yVW1jR285TUEtLSZzPWNvbnN1bWVyc2VjcmV0Jng9YTY-"
 #define YJ_SECRET @"1bf6a9b7a7c9824a311bf7f1eb8a5edd78b0d735"
 
-#define SERVER_URL @"http://moya-map.trick-with.net:3000/api/"
+#define SERVER_URL @"http://moya-map.trick-with.net/api/"
 
 @interface MMCommon : NSObject
 
