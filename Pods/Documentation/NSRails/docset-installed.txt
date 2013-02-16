@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/hal/Library/Developer/Shared/Documentation/DocSets/org.cocoapods.NSRails-2.0.1.docset
+Time: 2013-02-16 09:16:23 +0000

@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>NSRails 2.0.1 Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 789)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">NSRails 2.0.1 </a></h1>
+				<a id="developerHome" href="index.html">Dan Hassin</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">NSRails 2.0.1 Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">NSRails 2.0.1 Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<p><a href="http://nsrails.com/"><img src="http://i.imgur.com/3FFpT.png" alt="nsrails.com" /></a></p>
+
+<hr />
+
+<p>NSRails is a light-weight Objective-C framework that provides your classes with a high-level, ActiveResource-like API. This means CRUD and other operations on your corresponding Rails objects can be called natively via Objective-C methods.</p>
+
+<p>Instances will inherit methods to remotely create, read, update, or destroy a remote object:</p>
+
+<p><code>objc
+Post *newPost = [[Post alloc] init];
+newPost.author = @"Me";
+newPost.content = @"Some text";
+[newPost remoteCreate:&amp;error];     // This post and its properties created right on a Rails server
+</code></p>
+
+<p>Classes will inherit methods to retrieve all objects, or only certain ones:</p>
+
+<p>```objc
+NSArray <em>allPosts = [Post remoteAll:&amp;error];
+Post </em>postNumber1 = [Post remoteObjectWithID:1 error:&amp;error];</p>
+
+<p>// Display your article(s)! They&rsquo;re ready with their properties populated directly from your remote DB
+```</p>
+
+<h2>Features</h2>
+
+<ul>
+<li>High-level API, yet flexible enough even to work with any RESTful server</li>
+<li>Highly customizable property behaviors and nesting</li>
+<li>Asynchronous requests</li>
+<li><a href="https://github.com/dingbat/nsrails/tree/master/autogen">Autogenerate</a> NSRails-ready classes from a Rails project</li>
+<li>Fully supported in RubyMotion and MacRuby</li>
+<li>Written with ARC</li>
+<li>MIT license</li>
+</ul>
+
+
+<h2>Quick links</h2>
+
+<ul>
+<li><a href="http://dingbat.github.com/nsrails">Documentation</a></li>
+<li><a href="http://dingbat.github.com/nsrails/Classes/NSRRemoteManagedObject.html">CoreData guide</a></li>
+<li><a href="https://github.com/dingbat/nsrails/wiki/Cookbook">Cookbook</a></li>
+</ul>
+
+
+<h2>Getting started &ndash; Objective-C</h2>
+
+<ol>
+<li>Drop the <code>Source</code> folder into your Xcode project. You&rsquo;ll also need the CoreData framework linked in Build Phases.</li>
+<li><p>If you&rsquo;re using Git, you should add NSRails as a submodule to your project so you can <code>git pull</code> and always be up to date:</p>
+
+<p>  <code>
+  $ git submodule add git@github.com:dingbat/nsrails.git NSRails
+ </code></p>
+
+<p>  This will clone the entire NSRails repo, but you&rsquo;ll only need to add <code>nsrails/Source</code> to your project in Xcode.</p></li>
+<li><p>Make an Objective-C class for your Rails model and have it subclass <strong><a href="Classes/NSRRemoteObject.html">NSRRemoteObject</a></strong> (you&rsquo;ll need to <code>#import NSRails.h</code>)</p></li>
+</ol>
+
+
+<p>  ```objc
+  #import &ldquo;NSRails.h&rdquo;</p>
+
+<p>  @interface Post : NSRRemoteObject</p>
+
+<p>  @property (nonatomic, strong) NSString <em>author, </em>content;
+  @property (nonatomic, strong) NSDate *createdAt;</p>
+
+<p>  @end
+  ```</p>
+
+<ol>
+<li>Somewhere in your app setup, set your server URL using the <code>defaultConfig</code> singleton:</li>
+</ol>
+
+
+<p>  ```objc
+  #import &ldquo;NSRails.h&rdquo;</p>
+
+<ul>
+<li>(BOOL)application:(UIApplication <em>)app didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions
+{
+    <a href="Classes/NSRConfig.html#//api/name/defaultConfig">[NSRConfig defaultConfig]</a>.appURL = @&ldquo;<a href="http://localhost:3000">http://localhost:3000</a>&rdquo;;
+    &hellip;
+}
+```</li>
+</ul>
+
+
+<p>You&rsquo;re done! By subclassing NSRRemoteObject, your class gets instance and class methods that&rsquo;ll act on your remote objects. Here are a few of the things you can do with your new class:</p>
+
+<p>```objc
+// Retrieve post with ID 1
+Post *post = [Post remoteObjectWithID:1 error:&amp;error];</p>
+
+<p>// Update this post remotely
+post.content = @&ldquo;Changed!&rdquo;;
+[post remoteUpdate:&amp;error];</p>
+
+<p>// Fetch any latest data for this post (and know if anything changed)
+BOOL objectDidChange;
+[post remoteFetch:&amp;error changes:&amp;objectDidChange];</p>
+
+<p>// Retrieve a collection based on an object &ndash; will GET /posts/1/responses.json
+NSArray *responses = [Response remoteAllViaObject:post error:&amp;error];</p>
+
+<p>// Async is also available:
+[post remoteDestroyAsync: ^(NSError *error) {  if (!error) &hellip; }];
+```</p>
+
+<p>See the <a href="http://dingbat.github.com/nsrails/">documentation</a> for more on what you can do with your new class, or the <a href="https://github.com/dingbat/nsrails/wiki/Cookbook">cookbook</a> for quick <a href="Classes/NSRRemoteObject.html">NSRRemoteObject</a> recipes.</p>
+
+<h2>Getting started &ndash; Ruby</h2>
+
+<ol>
+<li>In <strong>MacRuby</strong>, simply drag the <code>Source</code> folder into Xcode in your MacRuby project, and NSRails should be built with your project as normal. For <strong>RubyMotion</strong>, follow these steps to vendor NSRails:</li>
+<li>Add a <code>vendor</code> directory on the main level of your RubyMotion app if you don&rsquo;t have one already</li>
+<li>Copy the <code>nsrails</code> directory (<a href="https://github.com/dingbat/nsrails/tree/master/nsrails">the one with the main Xcode project</a>) into <code>vendor</code>. (You can delete <code>Tests/</code>, but keep <code>Source/</code> and the Xcode project file).</li>
+<li><p>Modify your Rakefile to include NSRails and the CoreData framework:</p>
+
+<p>  ```ruby
+  Motion::Project::App.setup do |app|
+      # Add CoreData as a linked framework (required even if CoreData isn&rsquo;t used)
+      app.frameworks &lt;&lt; &ldquo;CoreData&rdquo;</p>
+
+<pre><code>  # Add this line:
+  app.vendor_project('vendor/nsrails', :xcode, :target =&gt; 'NSRails', :headers_dir =&gt; 'Source')
+  # OR this line, if you wish to use NSRails with CoreData
+  #app.vendor_project('vendor/nsrails', :xcode, :target =&gt; 'NSRailsCD', :headers_dir =&gt; 'Source')
+
+  ...
+</code></pre>
+
+<p>  end
+  ```</p></li>
+<li><p>Make a Ruby class for your Rails model and have it subclass <strong><a href="Classes/NSRRemoteObject.html">NSRRemoteObject</a></strong>:</p>
+
+<p> ```ruby
+ class Post &lt; NSRRemoteObject
+   attr_accessor :author, :content, :created_at</p>
+
+<p>   # Since Ruby only creates instance variables during runtime, properties
+   # have to be explicitly defined by overriding &lsquo;remoteProperties&rsquo;
+   def remoteProperties
+     super + [&ldquo;author&rdquo;, &ldquo;content&rdquo;, &ldquo;created_at&rdquo;]
+   end
+ end
+ ```</p></li>
+<li><p>Setup. This can go in <code>app_delegate.rb</code>:</p>
+
+<p> ```ruby
+ NSRConfig.defaultConfig.appURL = &ldquo;<a href="http://localhost:3000">http://localhost:3000</a>&rdquo;</p>
+
+<p> # Don&rsquo;t look for camelCase when receiving remote underscored_properties, since we&rsquo;re in Ruby
+ <a href="Classes/NSRConfig.html">NSRConfig</a>.defaultConfig.autoinflectsPropertyNames = false
+ ```</p></li>
+</ol>
+
+
+<p>Now have fun!</p>
+
+<p>```ruby</p>
+
+<h1>Get all posts (synchronously)</h1>
+
+<p>error_ptr = Pointer.new(:object)
+posts = Post.remoteAll(error_ptr)
+if !posts
+  error = error_ptr[0]
+  &hellip;
+end</p>
+
+<h1>Get all posts (asynchronously)</h1>
+
+<p>Post.remoteAllAsync(lambda do |posts, error|</p>
+
+<pre><code>                  ...
+                end)
+</code></pre>
+
+<p>```</p>
+
+<p>See the <a href="http://dingbat.github.com/nsrails/">documentation</a> for more on what you can do with your new class, or the <a href="https://github.com/dingbat/nsrails/wiki/Cookbook">cookbook</a> for quick <a href="Classes/NSRRemoteObject.html">NSRRemoteObject</a> recipes.</p>
+
+<h2>Dependencies</h2>
+
+<ul>
+<li><strong>iOS 5.0+</strong></li>
+<li><strong>Automatic Reference Counting (ARC)</strong>: If your project isn&rsquo;t using ARC, you&rsquo;ll need to selectively specify it for NSRails. Go to your active target, select the &ldquo;Build Phases&rdquo; tab, and in the &ldquo;Compile Sources&rdquo; section, set <code>-fobjc-arc</code> as a compiler flag for each NSRails source file.</li>
+</ul>
+
+
+<h2>Credits</h2>
+
+<p>Version 2.0.</p>
+
+<p>A lot of NSRails was inspired by the <a href="https://github.com/yfactorial/objectiveresource">ObjectiveResource</a> project. Thanks!</p>
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/NSRConfig.html">NSRConfig</a></li>
+							
+							<li><a href="Classes/NSRRemoteManagedObject.html">NSRRemoteManagedObject</a></li>
+							
+							<li><a href="Classes/NSRRemoteObject.html">NSRRemoteObject</a></li>
+							
+							<li><a href="Classes/NSRRequest.html">NSRRequest</a></li>
+							
+						</ul>
+					</div>
+					
+					
+						
+					<div class="index-column">
+						
+						
+						<h2 class="index-title">Category References</h2>
+						<ul>
+							
+							<li><a href="Categories/NSData+NSRDataAdditions.html">NSData(NSRDataAdditions)</a></li>
+							
+							<li><a href="Categories/NSMutableArray+NSRFetch.html">NSMutableArray(NSRFetch)</a></li>
+							
+							<li><a href="Categories/NSString+NSRInflection.html">NSString(NSRInflection)</a></li>
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Dan Hassin. All rights reserved. (Last updated: 2013-02-16)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 789)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>
