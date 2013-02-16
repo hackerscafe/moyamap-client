@@ -10,6 +10,14 @@
 
 #define IMAGE_MARGIN 18.0f
 
+@interface MMMoyaImage(){
+    UIImage *_image_on;
+    UIImage *_image_off;
+    CGPoint startLocation2;
+    CGPoint startLocation;
+}
+@end
+
 @implementation MMMoyaImage
 
 
@@ -18,12 +26,14 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setUserInteractionEnabled:YES];
+        _image_off = [UIImage imageNamed:@"moya"];
+        _image_on = [UIImage imageNamed:@"moya_on"];
     }
     return self;
 }
 - (id) initWithTitle:(NSString *)title{
     self = [self initWithFrame:CGRectZero];
-    self.image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"moya"]];
+    self.image = [[UIImageView alloc] initWithImage:_image_off];
     self.frame = _image.frame;
     CGRect tframe = _image.frame;
     tframe.size.width = [self textWidth];
@@ -57,10 +67,20 @@
     frame.size.width = [self textWidth];
     _title.frame = frame;
 }
+- (void)selectTag{
+    [UIView animateWithDuration:0.5f animations:^{
+        self.transform = CGAffineTransformMakeScale(4, 4);
+
+    }];
+}
+#pragma mark -
+#pragma mark touches
 - (void) touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
     // Retrieve the touch point
     CGPoint pt = [[touches anyObject] locationInView:self];
     startLocation = pt;
+    startLocation2 = [[touches anyObject] locationInView:self.superview];
+    _image.image = _image_on;
     [[self superview] bringSubviewToFront:self];
 }
 - (void) touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event {
@@ -71,6 +91,14 @@
     frame.origin.y += pt.y - startLocation.y;
     [self setFrame:frame];
 }
+- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    _image.image = _image_off;
+    CGPoint pt = [[touches anyObject] locationInView:self.superview];
+    if (startLocation2.x == pt.x && startLocation2.y == pt.y){
+        [self selectTag];
+    }
+}
+#pragma mark -
 
 /*
  // set random position

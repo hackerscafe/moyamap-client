@@ -33,6 +33,8 @@
 		2B092DC216CF3FEA00D72D4E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B092DB816CF3FEA00D72D4E /* Icon@2x.png */; };
 		2B092DC316CF3FEA00D72D4E /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B092DB916CF3FEA00D72D4E /* iTunesArtwork.png */; };
 		2B092DC416CF3FEA00D72D4E /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B092DBA16CF3FEA00D72D4E /* iTunesArtwork@2x.png */; };
+		2B6DD22816CF60A100DA082A /* moya_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DD22616CF60A100DA082A /* moya_on.png */; };
+		2B6DD22916CF60A100DA082A /* moya_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DD22716CF60A100DA082A /* moya_on@2x.png */; };
 		2BBE39D616CF48B700DF8344 /* YMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BBE39D516CF48B700DF8344 /* YMapKit.framework */; };
 		2BBE39EE16CF48CF00DF8344 /* compass48.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE39D816CF48CF00DF8344 /* compass48.png */; };
 		2BBE39EF16CF48CF00DF8344 /* compass48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE39D916CF48CF00DF8344 /* compass48@2x.png */; };
@@ -112,6 +114,8 @@
 		2B092DB816CF3FEA00D72D4E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		2B092DB916CF3FEA00D72D4E /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		2B092DBA16CF3FEA00D72D4E /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		2B6DD22616CF60A100DA082A /* moya_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moya_on.png; sourceTree = "<group>"; };
+		2B6DD22716CF60A100DA082A /* moya_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moya_on@2x.png"; sourceTree = "<group>"; };
 		2BBE39D516CF48B700DF8344 /* YMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YMapKit.framework; sourceTree = "<group>"; };
 		2BBE39D816CF48CF00DF8344 /* compass48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass48.png; sourceTree = "<group>"; };
 		2BBE39D916CF48CF00DF8344 /* compass48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compass48@2x.png"; sourceTree = "<group>"; };
@@ -336,6 +340,8 @@
 			children = (
 				2BBE3A1716CF4C9F00DF8344 /* search_button.png */,
 				2BBE3A1516CF4C5100DF8344 /* search_button@2x.png */,
+				2B6DD22616CF60A100DA082A /* moya_on.png */,
+				2B6DD22716CF60A100DA082A /* moya_on@2x.png */,
 				2BBE3A1916CF4E5F00DF8344 /* moya.png */,
 				2BBE3A1A16CF4E5F00DF8344 /* moya@2x.png */,
 			);
@@ -464,6 +470,8 @@
 				2BBE3A1816CF4C9F00DF8344 /* search_button.png in Resources */,
 				2BBE3A1B16CF4E5F00DF8344 /* moya.png in Resources */,
 				2BBE3A1C16CF4E5F00DF8344 /* moya@2x.png in Resources */,
+				2B6DD22816CF60A100DA082A /* moya_on.png in Resources */,
+				2B6DD22916CF60A100DA082A /* moya_on@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

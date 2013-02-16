@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface MMMoyaImage : UIView{
-    CGPoint startLocation;
 }
 @property(nonatomic,strong) UIImageView *image;
 @property(nonatomic,strong) UILabel *title;
