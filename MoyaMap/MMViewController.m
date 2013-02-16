@@ -23,11 +23,8 @@
 {
     [super viewDidLoad];
     [self setMap];
-    [self addMoya];
     [MMMoyaTag fetchAsync:^(NSArray *allRemote, NSError *error) {
-        for (MMMoyaTag *tag in allRemote){
-            NSLog(@"ret:%@", tag.name);
-        }
+        [self setMoyas:allRemote];
     }];
 }
 - (void)setMap{
@@ -42,14 +39,12 @@
 
     [self.view insertSubview:_map belowSubview:self.overlayView];
 }
-- (void)addMoya{
-    
-    MMMoyaImage *moya = [[MMMoyaImage alloc] initWithTitle:@"定員が可愛い" andDelegate:self];
-    MMMoyaImage *moya2 = [[MMMoyaImage alloc] initWithTitle:@"ラーメン" andDelegate:self];
-    MMMoyaImage *moya3 = [[MMMoyaImage alloc] initWithTitle:@"ハックデイ" andDelegate:self];
-    [_map addSubview:moya];
-    [_map addSubview:moya2];
-    [_map addSubview:moya3];
+- (void)setMoyas:(NSArray *)moyas{
+    for (MMMoyaTag *tag in moyas){
+        NSLog(@"resource_uri:%@", tag.resource_uri);
+        MMMoyaImage *moya = [[MMMoyaImage alloc] initWithTitle:tag.name andDelegate:self];
+        [_map addSubview:moya];
+    }
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];

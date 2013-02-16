@@ -2,6 +2,8 @@
 //  MMPropertyUtil.m
 //  MoyaMap
 //
+//  http://stackoverflow.com/questions/754824/get-an-object-attributes-list-in-objective-c
+//
 //  Created by Haruyuki Seki on 2/16/13.
 //  Copyright (c) 2013 Hacker's Cafe. All rights reserved.
 //

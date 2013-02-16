@@ -12,12 +12,10 @@ typedef void(^MMFetchCompletionBlock)(NSArray *allRemote, NSError *error);
 
 
 @interface MMRemoteClass : NSObject
-@property (nonatomic, strong, readonly) NSDictionary *remoteAttributes;
-@property (nonatomic) int remoteId;
+@property (nonatomic, strong) NSNumber* remoteId;
 
 
 +(void)fetchAsync:(MMFetchCompletionBlock)completionBlock;
-+(NSArray *)parseJSONArray:(NSArray *)array;
 
 /*
  // should override on subclass

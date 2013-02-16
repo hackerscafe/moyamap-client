@@ -11,4 +11,6 @@
 @interface MMMoyaTag : MMRemoteClass
 
 @property(nonatomic,retain) NSString *name;
+@property(nonatomic,retain) NSString *resource_uri;
+@property(nonatomic,retain) NSString *slug;
 @end

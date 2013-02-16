@@ -15,7 +15,9 @@
 
 @implementation MMRemoteClass
 
-
+/**
+ // read data from specified URI
+ */
 +(void)fetchAsync:(MMFetchCompletionBlock)completionBlock{
 
     NSString *strurl = [NSString stringWithFormat:@"%@%@", [MMRemoteConfig defaultConfig].baseurl, [[self class] performSelector:@selector(representUrl)]];
@@ -33,6 +35,11 @@
     [operation start];
     
 }
+#pragma mark -
+#pragma mark internal method
+/**
+ // parse JSONArray and create class instance
+ */
 +(NSArray *)parseJSONArray:(NSArray *)array{
     NSMutableArray *ret = [NSMutableArray arrayWithCapacity:[array count]];
     for (NSDictionary *dict in array){
@@ -42,12 +49,11 @@
     }
     return [[NSArray alloc] initWithArray:ret];
 }
-#pragma mark -
-#pragma mark internal method
 - (void) setPropertiesUsingRemoteDictionary:(NSDictionary *)dict
 {
-    if (dict)
-        _remoteAttributes = dict;
+    if ([dict objectForKey:@"id"]){
+        self.remoteId = [dict objectForKey:@"id"];
+    }
     NSDictionary *props = [MMPropertyUtil classPropsFor:[self class]];
     for (NSString *key in [props allKeys]){
         NSLog(@"key:%@", key);
@@ -59,12 +65,14 @@
 }
 
 #pragma mark -
-#pragma mark shouldoverride
+#pragma mark below methods shoul be doverride in a subclass
 +(NSString *)representUrl{
-    return @"";
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
 }
 +(NSString *)resultKey{
-    return @"";
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
 }
 
 @end
