@@ -49,6 +49,8 @@
 		2BABF36916CF8831005B407B /* MMMoyaTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF36816CF8831005B407B /* MMMoyaTag.m */; };
 		2BABF36F16CF90CD005B407B /* MMRemoteClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF36E16CF90CD005B407B /* MMRemoteClass.m */; };
 		2BABF37216CF92B9005B407B /* MMRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF37116CF92B9005B407B /* MMRemoteConfig.m */; };
+		2BABF37616CF9DCF005B407B /* AFJSONRequestOperation+MMLocalWikiJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF37516CF9DCF005B407B /* AFJSONRequestOperation+MMLocalWikiJSONRequestOperation.m */; };
+		2BABF37916CFA211005B407B /* MMPropertyUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF37816CFA211005B407B /* MMPropertyUtil.m */; };
 		2BBE39D616CF48B700DF8344 /* YMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BBE39D516CF48B700DF8344 /* YMapKit.framework */; };
 		2BBE39EE16CF48CF00DF8344 /* compass48.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE39D816CF48CF00DF8344 /* compass48.png */; };
 		2BBE39EF16CF48CF00DF8344 /* compass48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE39D916CF48CF00DF8344 /* compass48@2x.png */; };
@@ -150,6 +152,10 @@
 		2BABF36E16CF90CD005B407B /* MMRemoteClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMRemoteClass.m; path = classes/models/MMRemoteClass.m; sourceTree = "<group>"; };
 		2BABF37016CF92B9005B407B /* MMRemoteConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMRemoteConfig.h; path = classes/models/MMRemoteConfig.h; sourceTree = "<group>"; };
 		2BABF37116CF92B9005B407B /* MMRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMRemoteConfig.m; path = classes/models/MMRemoteConfig.m; sourceTree = "<group>"; };
+		2BABF37416CF9DCE005B407B /* AFJSONRequestOperation+MMLocalWikiJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AFJSONRequestOperation+MMLocalWikiJSONRequestOperation.h"; path = "classes/models/AFJSONRequestOperation+MMLocalWikiJSONRequestOperation.h"; sourceTree = "<group>"; };
+		2BABF37516CF9DCF005B407B /* AFJSONRequestOperation+MMLocalWikiJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AFJSONRequestOperation+MMLocalWikiJSONRequestOperation.m"; path = "classes/models/AFJSONRequestOperation+MMLocalWikiJSONRequestOperation.m"; sourceTree = "<group>"; };
+		2BABF37716CFA211005B407B /* MMPropertyUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMPropertyUtil.h; path = classes/common/MMPropertyUtil.h; sourceTree = "<group>"; };
+		2BABF37816CFA211005B407B /* MMPropertyUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMPropertyUtil.m; path = classes/common/MMPropertyUtil.m; sourceTree = "<group>"; };
 		2BBE39D516CF48B700DF8344 /* YMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YMapKit.framework; sourceTree = "<group>"; };
 		2BBE39D816CF48CF00DF8344 /* compass48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compass48.png; path = ../ymapimage/compass48.png; sourceTree = "<group>"; };
 		2BBE39D916CF48CF00DF8344 /* compass48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compass48@2x.png"; path = "../ymapimage/compass48@2x.png"; sourceTree = "<group>"; };
@@ -343,6 +349,8 @@
 				2BABF36E16CF90CD005B407B /* MMRemoteClass.m */,
 				2BABF37016CF92B9005B407B /* MMRemoteConfig.h */,
 				2BABF37116CF92B9005B407B /* MMRemoteConfig.m */,
+				2BABF37416CF9DCE005B407B /* AFJSONRequestOperation+MMLocalWikiJSONRequestOperation.h */,
+				2BABF37516CF9DCF005B407B /* AFJSONRequestOperation+MMLocalWikiJSONRequestOperation.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -393,6 +401,8 @@
 			children = (
 				2BBE3A0616CF494400DF8344 /* MMCommon.h */,
 				2BBE3A0716CF494400DF8344 /* MMCommon.m */,
+				2BABF37716CFA211005B407B /* MMPropertyUtil.h */,
+				2BABF37816CFA211005B407B /* MMPropertyUtil.m */,
 			);
 			name = common;
 			sourceTree = "<group>";
@@ -612,6 +622,8 @@
 				2BABF36916CF8831005B407B /* MMMoyaTag.m in Sources */,
 				2BABF36F16CF90CD005B407B /* MMRemoteClass.m in Sources */,
 				2BABF37216CF92B9005B407B /* MMRemoteConfig.m in Sources */,
+				2BABF37616CF9DCF005B407B /* AFJSONRequestOperation+MMLocalWikiJSONRequestOperation.m in Sources */,
+				2BABF37916CFA211005B407B /* MMPropertyUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,8 +12,10 @@
 
 
 +(NSString *)representUrl{
-    return @"tag";
+    return @"tag?format=json";
 }
-
++(NSString *)resultKey{
+    return @"objects";
+}
 
 @end

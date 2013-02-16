@@ -10,4 +10,5 @@
 
 @interface MMMoyaTag : MMRemoteClass
 
+@property(nonatomic,retain) NSString *name;
 @end
