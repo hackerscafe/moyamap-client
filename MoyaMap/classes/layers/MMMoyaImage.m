@@ -92,6 +92,7 @@
     startLocation = pt;
     startLocation2 = [[touches anyObject] locationInView:self.superview];
     _image.image = _image_on;
+    NSLog(@"start:%f,%f", startLocation2.x,startLocation2.y);
     [[self superview] bringSubviewToFront:self];
 }
 - (void) touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event {
@@ -105,7 +106,8 @@
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     _image.image = _image_off;
     CGPoint pt = [[touches anyObject] locationInView:self.superview];
-    if (startLocation2.x == pt.x && startLocation2.y == pt.y){
+    NSLog(@"dnd:%f,%f", pt.x,pt.y);
+    if (pow(startLocation2.x - pt.x,2) < 9 && pow(startLocation2.y - pt.y, 2) < 9){
         [self selectTag];
     }
 }

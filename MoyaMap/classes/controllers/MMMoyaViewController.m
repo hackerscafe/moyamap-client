@@ -94,6 +94,7 @@
         acell = [[MMMoyaActivityCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     acell.name.text = activity.user_name;
+    NSLog(@"user_nae:%@", activity.user_name);
     acell.message.text = activity.message;
     acell.image.image = [UIImage imageWithData: [NSData dataWithContentsOfURL: [NSURL URLWithString:activity.picture_url ]] ];
     acell.time.text = [activity strTime];

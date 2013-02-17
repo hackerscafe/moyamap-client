@@ -57,6 +57,10 @@ NSObject *parseValue(yaml_event_t *event);
 				yaml_parser_delete(&parser);
 				return nil;
             }
+                default:
+            {
+                break;
+            }
 		}
 		
 		yaml_event_delete(&event);
@@ -107,6 +111,10 @@ NSArray *parseSequence(yaml_parser_t *parser) {
             {
 				yaml_event_delete(&event);
 				return nil;
+            }
+                default:
+            {
+                break;
             }
 		}
 		
@@ -172,6 +180,10 @@ NSDictionary *parseMapping(yaml_parser_t *parser) {
 				yaml_event_delete(&event);
 				return nil;
             }
+                default:
+    {
+        break;
+    }
 		}
 		
 		yaml_event_delete(&event);

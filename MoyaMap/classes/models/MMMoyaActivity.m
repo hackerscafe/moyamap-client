@@ -26,6 +26,7 @@
         NSDictionary *page = (NSDictionary *)object;
         NSString *content = [page objectForKey:@"content"];
         content = [[content stringByReplacingOccurrencesOfString:@"<pre>---" withString:@""] stringByReplacingOccurrencesOfString:@"</pre>" withString:@""];
+        NSLog(@"content:%@", content);
         NSDictionary *yaml = (NSDictionary *)[YamlParser objectFromString:content];
         self.location_name = [yaml objectForKey:@":location_name"];
         self.message = [yaml objectForKey:@":message"];
