@@ -11,6 +11,7 @@
 #import "MMMoyaActivity.h"
 #import "MMMoyaActivityCell.h"
 #import "MMLoadingCell.h"
+#import "MMActivityViewController.h"
 
 @interface MMMoyaViewController ()
 {
@@ -59,6 +60,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"showActivityOne"]) {
+        UINavigationController *nav = (UINavigationController *)[segue destinationViewController];
+        MMActivityViewController *controller = (MMActivityViewController *)[nav topViewController];
+        controller.activities = sender;
+    }else if ([[segue identifier] isEqualToString:@"showActivityAll"]){
+        UINavigationController *nav = (UINavigationController *)[segue destinationViewController];
+        MMActivityViewController *controller = (MMActivityViewController *)[nav topViewController];
+        controller.activities = moyas;
+    }
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -98,6 +110,7 @@
     acell.message.text = activity.message;
     acell.image.image = [UIImage imageWithData: [NSData dataWithContentsOfURL: [NSURL URLWithString:activity.picture_url ]] ];
     acell.time.text = [activity strTime];
+    acell.activity = activity;
     
     return acell;
 }
@@ -145,13 +158,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    if (moyas){
+        [self performSegueWithIdentifier:@"showActivityOne" sender:[moyas objectAtIndex:indexPath.row]];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
