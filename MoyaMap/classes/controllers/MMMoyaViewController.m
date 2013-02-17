@@ -7,6 +7,8 @@
 //
 
 #import "MMMoyaViewController.h"
+#import "MMMoyaTag.h"
+#import "MMMoyaActivity.h"
 
 @interface MMMoyaViewController ()
 
@@ -26,12 +28,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSString *resource_uri = _moyatag.resource_uri;
+    NSString *slug = [resource_uri substringFromIndex:[@"/api/tag" length] + 1];
+    NSArray *keys = [NSArray arrayWithObjects:@"format", @"limit", @"page__page_tags__tags__slug", nil];
+    NSArray *values = [NSArray arrayWithObjects:@"json", @"0", slug, nil];
+    
+    [MMMoyaActivity fetchAsyncWithParams:[NSDictionary dictionaryWithObjects:values forKeys:keys] async:^(NSArray *allRemote, NSError *error){
+        NSLog(@"ok");
+    }];
 }
 
 - (void)didReceiveMemoryWarning

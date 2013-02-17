@@ -22,6 +22,9 @@
 
     NSString *strurl = [NSString stringWithFormat:@"%@%@", [MMRemoteConfig defaultConfig].baseurl, [[self class] performSelector:@selector(representUrl)]];
     LOG(@"call:%@", strurl);
+    [[self class] performSelector:@selector(fetchURL:async:) withObject:strurl withObject:completionBlock];
+}
++(void)fetchURL:(NSString *)strurl async:(MMFetchCompletionBlock)completionBlock{
     NSURL *url = [NSURL URLWithString:strurl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
@@ -34,6 +37,20 @@
     }];
     [operation start];
     
+}
++(void)fetchAsyncWithParams:(NSDictionary *)params async:(MMFetchCompletionBlock)completionBlock{
+    NSString *path = [[self class] performSelector:@selector(representUrl)];
+    for (NSString *key in [params allKeys]){
+        if ([path rangeOfString:@"?"].location == NSNotFound){
+            path = [path stringByAppendingFormat:@"?%@=%@", key, [params objectForKey:key]];
+        }else{
+            path = [path stringByAppendingFormat:@"&%@=%@", key, [params objectForKey:key]];
+        }
+    }
+    
+    NSString *strurl = [NSString stringWithFormat:@"%@%@", [MMRemoteConfig defaultConfig].baseurl, path];
+    LOG(@"call:%@", strurl);
+    [[self class] performSelector:@selector(fetchURL:async:) withObject:strurl withObject:completionBlock];
 }
 #pragma mark -
 #pragma mark internal method

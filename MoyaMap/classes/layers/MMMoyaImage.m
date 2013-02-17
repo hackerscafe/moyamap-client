@@ -7,6 +7,7 @@
 //
 
 #import "MMMoyaImage.h"
+#import "MMMoyaTag.h"
 
 #define IMAGE_MARGIN 18.0f
 
@@ -31,13 +32,15 @@
     }
     return self;
 }
--(id)initWithTitle:(NSString*)title andDelegate:(id<MMMoyaImageDelegate>)delegate{
-    self = [self initWithTitle:title];
+-(id)initWithMoya:(MMMoyaTag*)moyatag andDelegate:(id<MMMoyaImageDelegate>)delegate{
+    self = [self initWithMoya:moyatag];
     self.delegate = delegate;
     return self;
 }
-- (id) initWithTitle:(NSString *)title{
+- (id) initWithMoya:(MMMoyaTag *)moyatag{
     self = [self initWithFrame:CGRectZero];
+    NSString *title = moyatag.name;
+    self.moyatag = moyatag;
     self.image = [[UIImageView alloc] initWithImage:_image_off];
     self.frame = _image.frame;
     CGRect tframe = _image.frame;

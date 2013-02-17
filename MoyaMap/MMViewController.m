@@ -12,6 +12,7 @@
 #import "MMCommon.h"
 #import "MMMoyaTag.h"
 #import "MMLoginViewController.h"
+#import "MMMoyaViewController.h"
 #import "AFNetworking.h"
 
 #define MENU_MYMOYA 0
@@ -59,7 +60,7 @@
 - (void)setMoyas:(NSArray *)moyas{
     for (MMMoyaTag *tag in moyas){
         NSLog(@"resource_uri:%@", tag.resource_uri);
-        MMMoyaImage *moya = [[MMMoyaImage alloc] initWithTitle:tag.name andDelegate:self];
+        MMMoyaImage *moya = [[MMMoyaImage alloc] initWithMoya:tag andDelegate:self];
         [_map addSubview:moya];
     }
 }
@@ -71,7 +72,7 @@
 #pragma mark -
 #pragma mark MMMoyaImageDelegate
 -(void)moyaTouched:(id)moya{
-    [self performSegueWithIdentifier:@"showTagView" sender:self];
+    [self performSegueWithIdentifier:@"showTagView" sender:moya];
 }
 
 
@@ -105,6 +106,9 @@
         UINavigationController *controller = (UINavigationController *)[segue destinationViewController];
         MMLoginViewController *login = (MMLoginViewController*)controller.topViewController;
         login.delegate = self;
+    }else if ([[segue identifier] isEqualToString:@"showTagView"]){
+        MMMoyaViewController *moya = (MMMoyaViewController *)[segue destinationViewController];
+        moya.moyatag = ((MMMoyaImage *)sender).moyatag;
     }
 }
 

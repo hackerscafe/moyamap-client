@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MMMoyaTag;
 
 @protocol MMMoyaViewControllerDelegate <NSObject>
 
@@ -15,6 +16,7 @@
 
 @interface MMMoyaViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UIView *footerView;
+@property (nonatomic, strong) MMMoyaTag *moyatag;
 - (IBAction)pressClose:(id)sender;
 
 @end

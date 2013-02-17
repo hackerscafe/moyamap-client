@@ -14,13 +14,16 @@
 
 @end
 
+@class MMMoyaTag;
+
 @interface MMMoyaImage : UIView{
 }
 @property(nonatomic,unsafe_unretained) id<MMMoyaImageDelegate> delegate;
 @property(nonatomic,strong) UIImageView *image;
 @property(nonatomic,strong) UILabel *title;
--(id)initWithTitle:(NSString*)title;
--(id)initWithTitle:(NSString*)title andDelegate:(id<MMMoyaImageDelegate>)delegate;
+@property(nonatomic,strong) MMMoyaTag *moyatag;
+-(id)initWithMoya:(MMMoyaTag*)title;
+-(id)initWithMoya:(MMMoyaTag*)title andDelegate:(id<MMMoyaImageDelegate>)delegate;
 -(void)randomPosition;
 
 @end

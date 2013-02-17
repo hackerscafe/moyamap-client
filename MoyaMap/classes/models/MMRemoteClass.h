@@ -16,6 +16,7 @@ typedef void(^MMFetchCompletionBlock)(NSArray *allRemote, NSError *error);
 
 
 +(void)fetchAsync:(MMFetchCompletionBlock)completionBlock;
++(void)fetchAsyncWithParams:(NSDictionary *)params async:(MMFetchCompletionBlock)completionBlock;
 
 /*
  // should override on subclass
