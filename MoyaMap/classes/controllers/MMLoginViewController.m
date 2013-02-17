@@ -45,4 +45,8 @@
 
     [_delegate openSession];
 }
+
+- (IBAction)pressClose:(id)sender {
+    [_delegate cancelSession];
+}
 @end

@@ -172,11 +172,8 @@
             break;
         case FBSessionStateClosed:
         case FBSessionStateClosedLoginFailed: {
-           UIViewController *topViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-            if ([[topViewController modalViewController]
-                 isKindOfClass:[UINavigationController class]]) {
-                [topViewController dismissModalViewControllerAnimated:YES];
-            }
+            [self closeLogin];
+
             [FBSession.activeSession closeAndClearTokenInformation];
         }
             break;
@@ -204,6 +201,18 @@
        FBSessionState state, NSError *error) {
          [self sessionStateChanged:session state:state error:error];
      }];
+}
+- (void)cancelSession{
+    [self closeLogin];
+    [FBSession.activeSession closeAndClearTokenInformation];
+
+}
+- (void)closeLogin{
+    UIViewController *topViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    if ([[topViewController modalViewController]
+         isKindOfClass:[UINavigationController class]]) {
+        [topViewController dismissModalViewControllerAnimated:YES];
+    }
 }
 
 @end

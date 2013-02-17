@@ -11,6 +11,7 @@
 @protocol MMLoginViewControllerDelegate <NSObject>
 
 - (void)openSession;
+- (void)cancelSession;
 
 @end
 
@@ -18,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 @property (nonatomic, unsafe_unretained) id<MMLoginViewControllerDelegate> delegate;
 - (IBAction)pressLogin:(id)sender;
+- (IBAction)pressClose:(id)sender;
 
 @end
