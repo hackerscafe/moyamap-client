@@ -8,6 +8,7 @@
 
 #import "MMActivityViewController.h"
 #import "MMCommon.h"
+#import "MMMoyaActivity.h"
 
 @interface MMActivityViewController ()
 {
@@ -35,10 +36,9 @@
     _map.mapType = YMKMapTypeStandard;
     _map.delegate = self;
     //地図の位置と縮尺を設定
-    CLLocationCoordinate2D center;
-    center.latitude = 35.6657214;
-    center.longitude = 139.7310058;
-    _map.region = YMKCoordinateRegionMake(center, YMKCoordinateSpanMake(0.02, 0.02));
+    MMMoyaActivity *activity = (MMMoyaActivity *)[_activities objectAtIndex:0];
+    self.title = [NSString stringWithFormat:@"%@ のもや", self.tagname];
+    _map.region = YMKCoordinateRegionMake(activity.location, YMKCoordinateSpanMake(0.02, 0.02));
     
     [self.view addSubview:_map];
 }

@@ -11,5 +11,6 @@
 
 @interface MMActivityViewController : UIViewController<YMKMapViewDelegate>
 @property(nonatomic,strong) NSArray *activities;
+@property(nonatomic,strong) NSString *tagname;
 - (IBAction)pressBack:(id)sender;
 @end

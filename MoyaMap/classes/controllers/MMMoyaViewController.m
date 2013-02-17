@@ -61,13 +61,12 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    UINavigationController *nav = (UINavigationController *)[segue destinationViewController];
+    MMActivityViewController *controller = (MMActivityViewController *)[nav topViewController];
+    controller.tagname = _moyatag.name;
     if ([[segue identifier] isEqualToString:@"showActivityOne"]) {
-        UINavigationController *nav = (UINavigationController *)[segue destinationViewController];
-        MMActivityViewController *controller = (MMActivityViewController *)[nav topViewController];
-        controller.activities = sender;
+        controller.activities = [NSArray arrayWithObject:sender];
     }else if ([[segue identifier] isEqualToString:@"showActivityAll"]){
-        UINavigationController *nav = (UINavigationController *)[segue destinationViewController];
-        MMActivityViewController *controller = (MMActivityViewController *)[nav topViewController];
         controller.activities = moyas;
     }
 }

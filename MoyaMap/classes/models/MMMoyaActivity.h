@@ -7,6 +7,7 @@
 //
 
 #import "MMRemoteClass.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface MMMoyaActivity : MMRemoteClass
 @property(nonatomic,strong) NSDictionary *geom;
@@ -17,6 +18,7 @@
 @property(nonatomic,strong) NSString *user_id;
 @property(nonatomic,strong) NSString *picture_url;
 @property(nonatomic,strong) NSDate *time;
+@property(nonatomic) CLLocationCoordinate2D location;
 
 -(NSString *)strTime;
 

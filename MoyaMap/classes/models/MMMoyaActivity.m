@@ -34,12 +34,20 @@
         self.user_id = [yaml objectForKey:@":user_id"];
         self.picture_url = [yaml objectForKey:@":picture_url"];
         self.time = [self parseTime:[yaml objectForKey:@":time"]];
+    }else if ([key isEqualToString:@"geom"]){
+        NSDictionary *geom = (NSDictionary *)object;
+        NSArray *coord = [[[geom objectForKey:@"geometries"] objectAtIndex:0] objectForKey:@"coordinates"];
+        self.location = CLLocationCoordinate2DMake((CLLocationDegrees)[[coord objectAtIndex:1] doubleValue],
+                                                   (CLLocationDegrees)[[coord objectAtIndex:0] doubleValue]);
+        
     }else if ([key isEqualToString:@"location_name"] ||
               [key isEqualToString:@"message"] ||
               [key isEqualToString:@"user_name"] ||
               [key isEqualToString:@"user_id"] ||
               [key isEqualToString:@"picture_url"] ||
-              [key isEqualToString:@"time"]
+              [key isEqualToString:@"time"] ||
+              [key isEqualToString:@"geom"] ||
+              [key isEqualToString:@"location"]
               ){
         return;
     }else{
