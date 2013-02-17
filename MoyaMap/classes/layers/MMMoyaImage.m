@@ -107,7 +107,7 @@
     _image.image = _image_off;
     CGPoint pt = [[touches anyObject] locationInView:self.superview];
     NSLog(@"dnd:%f,%f", pt.x,pt.y);
-    if (pow(startLocation2.x - pt.x,2) < 9 && pow(startLocation2.y - pt.y, 2) < 9){
+    if (pow(startLocation2.x - pt.x,2) < 25 && pow(startLocation2.y - pt.y, 2) < 25){
         [self selectTag];
     }
 }
