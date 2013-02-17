@@ -39,6 +39,7 @@
 		2B2065AD16D0C9F3007319AE /* MMMoyaAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2065AC16D0C9F3007319AE /* MMMoyaAnnotation.m */; };
 		2B6D94EA16D0D57700BDF4FB /* moyapin.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D94E816D0D57700BDF4FB /* moyapin.png */; };
 		2B6D94EB16D0D57700BDF4FB /* moyapin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D94E916D0D57700BDF4FB /* moyapin@2x.png */; };
+		2B6D94EE16D0E14C00BDF4FB /* MMNewMoyaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D94ED16D0E14C00BDF4FB /* MMNewMoyaViewController.m */; };
 		2B6DD22816CF60A100DA082A /* moya_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DD22616CF60A100DA082A /* moya_on.png */; };
 		2B6DD22916CF60A100DA082A /* moya_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DD22716CF60A100DA082A /* moya_on@2x.png */; };
 		2B6DD23616CF747D00DA082A /* moya_footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DD23216CF747D00DA082A /* moya_footer.png */; };
@@ -172,6 +173,8 @@
 		2B2065AC16D0C9F3007319AE /* MMMoyaAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMMoyaAnnotation.m; path = classes/layers/MMMoyaAnnotation.m; sourceTree = "<group>"; };
 		2B6D94E816D0D57700BDF4FB /* moyapin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = moyapin.png; path = image/moyapin.png; sourceTree = "<group>"; };
 		2B6D94E916D0D57700BDF4FB /* moyapin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "moyapin@2x.png"; path = "image/moyapin@2x.png"; sourceTree = "<group>"; };
+		2B6D94EC16D0E14C00BDF4FB /* MMNewMoyaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMNewMoyaViewController.h; path = classes/controllers/MMNewMoyaViewController.h; sourceTree = "<group>"; };
+		2B6D94ED16D0E14C00BDF4FB /* MMNewMoyaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMNewMoyaViewController.m; path = classes/controllers/MMNewMoyaViewController.m; sourceTree = "<group>"; };
 		2B6DD22616CF60A100DA082A /* moya_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moya_on.png; sourceTree = "<group>"; };
 		2B6DD22716CF60A100DA082A /* moya_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moya_on@2x.png"; sourceTree = "<group>"; };
 		2B6DD23216CF747D00DA082A /* moya_footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moya_footer.png; sourceTree = "<group>"; };
@@ -419,6 +422,8 @@
 				2BABF39416D06202005B407B /* MMLoginViewController.m */,
 				2B2065A816D0BFC9007319AE /* MMActivityViewController.h */,
 				2B2065A916D0BFC9007319AE /* MMActivityViewController.m */,
+				2B6D94EC16D0E14C00BDF4FB /* MMNewMoyaViewController.h */,
+				2B6D94ED16D0E14C00BDF4FB /* MMNewMoyaViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -768,6 +773,7 @@
 				2B2065A716D0B605007319AE /* MMLoadingCell.m in Sources */,
 				2B2065AA16D0BFCA007319AE /* MMActivityViewController.m in Sources */,
 				2B2065AD16D0C9F3007319AE /* MMMoyaAnnotation.m in Sources */,
+				2B6D94EE16D0E14C00BDF4FB /* MMNewMoyaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

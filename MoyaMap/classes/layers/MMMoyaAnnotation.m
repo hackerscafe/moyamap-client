@@ -9,14 +9,15 @@
 #import "MMMoyaAnnotation.h"
 
 @implementation MMMoyaAnnotation
+@synthesize annotationTitle,annotationSubtitle,coordinate;
 //初期化処理
 - (id)initWithLocationCoordinate:(CLLocationCoordinate2D) coord
                            title:(NSString *)annTitle subtitle:(NSString *)annSubtitle {
     if (self=[super init]) {
-        _coordinate.latitude = coord.latitude;
-        _coordinate.longitude = coord.longitude;
-        _annotationTitle = annTitle;
-        _annotationSubtitle = annSubtitle;
+        coordinate.latitude = coord.latitude;
+        coordinate.longitude = coord.longitude;
+        annotationTitle = annTitle;
+        annotationSubtitle = annSubtitle;
     }
     return self;
 }
@@ -24,12 +25,12 @@
 //タイトル
 - (NSString *)title
 {
-    return _annotationTitle;
+    return annotationTitle;
 }
 
 //サブタイトル
 - (NSString *)subtitle
 {
-    return _annotationSubtitle;
+    return annotationSubtitle;
 }
 @end

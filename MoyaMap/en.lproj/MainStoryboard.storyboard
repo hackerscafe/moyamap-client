@@ -91,6 +91,7 @@
                         <outlet property="searchText" destination="Wl4-ZT-y7V" id="ZBH-e1-4wG"/>
                         <segue destination="DB0-hl-0T4" kind="modal" identifier="showTagView" animates="NO" id="iiJ-jY-iyp"/>
                         <segue destination="i6B-0s-Kbo" kind="modal" identifier="showLoginView" id="aQG-2p-MHQ"/>
+                        <segue destination="gRK-OF-KXl" kind="modal" identifier="showNewMoya" id="NNh-N9-zMx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -341,6 +342,90 @@
             <point key="canvasLocation" x="1117" y="871"/>
         </scene>
         <!--Navigation Controller-->
+        <scene sceneID="ZIq-Qh-equ">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="gRK-OF-KXl" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gjt-SO-Sis">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.74509803919999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Ssz-VJ-mfr" kind="relationship" relationship="rootViewController" id="V1L-bV-pCf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xl6-8p-82V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="725" y="1569"/>
+        </scene>
+        <!--New Moya View Controller - モヤっとする-->
+        <scene sceneID="gYA-id-rcv">
+            <objects>
+                <viewController id="Ssz-VJ-mfr" customClass="MMNewMoyaViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="65h-nV-gEG">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="bezel" minimumFontSize="17" id="vPz-Aa-QYM">
+                                <rect key="frame" x="10" y="66" width="301" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" minimumFontSize="17" id="spV-v1-l3r">
+                                <rect key="frame" x="86" y="9" width="225" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="コメント" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BhT-Ns-3tb">
+                                <rect key="frame" x="10" y="42" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="もやタグ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vhg-wC-omM">
+                                <rect key="frame" x="10" y="13" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XyJ-Ke-irJ">
+                                <rect key="frame" x="10" y="171" width="301" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="もやる">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressMoya:" destination="Ssz-VJ-mfr" eventType="touchUpInside" id="Uo7-ga-f9n"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="モヤっとする" id="E5O-Oc-mbY">
+                        <barButtonItem key="leftBarButtonItem" title="閉じる" id="QWz-AR-ixa">
+                            <connections>
+                                <action selector="pressClose:" destination="Ssz-VJ-mfr" id="g26-SZ-P00"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="text" destination="vPz-Aa-QYM" id="sDe-sU-f6h"/>
+                        <outlet property="textTag" destination="spV-v1-l3r" id="O3s-ZC-h6F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YT4-PA-Ic7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1125" y="1569"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="sPO-Qr-Zn3">
             <objects>
                 <navigationController definesPresentationContext="YES" id="i6B-0s-Kbo" sceneMemberID="viewController">
@@ -439,6 +524,16 @@
                 <relationship kind="action" name="pressClose:"/>
                 <relationship kind="outlet" name="footerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="labelTag" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MMNewMoyaViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MMNewMoyaViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pressClose:"/>
+                <relationship kind="action" name="pressMoya:"/>
+                <relationship kind="action" name="pressPlace:"/>
+                <relationship kind="outlet" name="text" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textTag" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="MMViewController" superclassName="UIViewController">

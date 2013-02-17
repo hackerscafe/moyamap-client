@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Hacker's Cafe. All rights reserved.
 //
 
-#import <FacebookSDK/FacebookSDK.h>
 
 #import "MMViewController.h"
 #import "MMCommon.h"
 #import "MMMoyaTag.h"
 #import "MMLoginViewController.h"
 #import "MMMoyaViewController.h"
+#import "MMNewMoyaViewController.h"
 #import "AFNetworking.h"
 
 #define MENU_MYMOYA 0
@@ -53,6 +53,7 @@
         }];
 
     }
+
 }
 - (void)setMap{
     _map = [[YMKMapView alloc] initWithFrame:SCREEN_BOUNDS appid:YJ_APP_ID];
@@ -93,6 +94,7 @@
 }
 
 - (void)viewDidUnload {
+
     [self setOverlayView:nil];
     [self setSearchText:nil];
     [self setSearchText:nil];
@@ -118,6 +120,10 @@
     }else if ([[segue identifier] isEqualToString:@"showTagView"]){
         MMMoyaViewController *moya = (MMMoyaViewController *)[segue destinationViewController];
         moya.moyatag = ((MMMoyaImage *)sender).moyatag;
+    }else if ([[segue identifier] isEqualToString:@"showNewMoya"]){
+        UINavigationController *controller = (UINavigationController *)[segue destinationViewController];
+        MMNewMoyaViewController *newmoya = (MMNewMoyaViewController*)controller.topViewController;
+        newmoya.lastLocation = lastloc;
     }
 }
 
@@ -130,9 +136,13 @@
          _map.region = YMKCoordinateRegionMake(lastloc.coordinate, YMKCoordinateSpanMake(0.02, 0.02));
     }
 }
+- (void)showNewMoyaView {
+    [self performSegueWithIdentifier:@"showNewMoya" sender:self];
+}
 
 - (IBAction)menuPressed:(UISegmentedControl*)menu {
     // See if we have a valid token for the current state.
+    
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         // To-do, show menu
         if (menu.selectedSegmentIndex == MENU_MYMOYA){
@@ -140,6 +150,8 @@
         }else if(menu.selectedSegmentIndex == MENU_FRIENDMOYA){
             // for test
             //[self logout];
+        }else if (menu.selectedSegmentIndex == MENU_NEWMOYA){
+            [self showNewMoyaView];
         }
     } else {
         // No, display the login page.
@@ -205,6 +217,7 @@
 
 - (void)openSession
 {
+    if (FBSession.activeSession.accessToken) return;
     [FBSession openActiveSessionWithReadPermissions:nil
                                        allowLoginUI:YES
                                   completionHandler:
