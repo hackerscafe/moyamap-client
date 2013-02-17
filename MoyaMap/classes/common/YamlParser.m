@@ -31,27 +31,32 @@ NSObject *parseValue(yaml_event_t *event);
 		
 		switch (event.type) {
 			case YAML_SCALAR_EVENT:
-				;
+            {
 				NSObject *value = parseValue(&event);
 				yaml_event_delete(&event);
 				yaml_parser_delete(&parser);
 				return value;
+            }
 			case YAML_SEQUENCE_START_EVENT:
-				;
+            {
 				NSArray *sequenceValue = parseSequence(&parser);
 				yaml_event_delete(&event);
 				yaml_parser_delete(&parser);
 				return sequenceValue;
+            }
 			case YAML_MAPPING_START_EVENT:
-				;
+            {
 				NSDictionary *mappingValue = parseMapping(&parser);
 				yaml_event_delete(&event);
 				yaml_parser_delete(&parser);
 				return mappingValue;
+            }
 			case YAML_STREAM_END_EVENT:
+            {
 				yaml_event_delete(&event);
 				yaml_parser_delete(&parser);
 				return nil;
+            }
 		}
 		
 		yaml_event_delete(&event);
@@ -68,12 +73,13 @@ NSArray *parseSequence(yaml_parser_t *parser) {
 		
 		switch (event.type) {
 			case YAML_SCALAR_EVENT:
-				;
+            {
 				NSObject *value = parseValue(&event);
 				[sequence addObject:value];
 				break;
+            }
 			case YAML_SEQUENCE_START_EVENT:
-				;
+            {
 				NSArray *sequenceValue = parseSequence(parser);
 				if (!sequenceValue) {
 					yaml_event_delete(&event);
@@ -81,11 +87,14 @@ NSArray *parseSequence(yaml_parser_t *parser) {
 				}
 				[sequence addObject:sequenceValue];
 				break;
+            }
 			case YAML_SEQUENCE_END_EVENT:
+            {
 				yaml_event_delete(&event);
 				return sequence;
+            }
 			case YAML_MAPPING_START_EVENT:
-				;
+            {
 				NSDictionary *mappingValue = parseMapping(parser);
 				if (!mappingValue) {
 					yaml_event_delete(&event);
@@ -93,9 +102,12 @@ NSArray *parseSequence(yaml_parser_t *parser) {
 				}
 				[sequence addObject:mappingValue];
 				break;
+            }
 			case YAML_STREAM_END_EVENT:
+            {
 				yaml_event_delete(&event);
 				return nil;
+            }
 		}
 		
 		yaml_event_delete(&event);
@@ -113,7 +125,7 @@ NSDictionary *parseMapping(yaml_parser_t *parser) {
 		
 		switch (event.type) {
 			case YAML_SCALAR_EVENT:
-				;
+            {
 				NSObject *value = parseValue(&event);
 				if (!key) {
 					key = [value description];
@@ -123,8 +135,9 @@ NSDictionary *parseMapping(yaml_parser_t *parser) {
 					key = nil;
 				}
 				break;
+            }
 			case YAML_SEQUENCE_START_EVENT:
-				;
+            {
 				NSArray *sequenceValue = parseSequence(parser);
 				if (!sequenceValue) {
 					yaml_event_delete(&event);
@@ -135,8 +148,9 @@ NSDictionary *parseMapping(yaml_parser_t *parser) {
 					key = nil;
 				}
 				break;
+            }
 			case YAML_MAPPING_START_EVENT:
-				;
+            {
 				NSDictionary *mappingValue = parseMapping(parser);
 				if (!mappingValue) {
 					yaml_event_delete(&event);
@@ -147,12 +161,17 @@ NSDictionary *parseMapping(yaml_parser_t *parser) {
 					key = nil;
 				}
 				break;
+            }
 			case YAML_MAPPING_END_EVENT:
+            {
 				yaml_event_delete(&event);
 				return mapping;
+            }
 			case YAML_STREAM_END_EVENT:
+            {
 				yaml_event_delete(&event);
 				return nil;
+            }
 		}
 		
 		yaml_event_delete(&event);
@@ -160,19 +179,19 @@ NSDictionary *parseMapping(yaml_parser_t *parser) {
 }
 
 NSObject *parseValue(yaml_event_t *event) {
-	NSString *value = [[[NSString alloc] initWithBytes:event->data.scalar.value length:event->data.scalar.length encoding:NSUTF8StringEncoding] autorelease];
+	NSString *value = [[NSString alloc] initWithBytes:event->data.scalar.value length:event->data.scalar.length encoding:NSUTF8StringEncoding];
 	if (event->data.scalar.quoted_implicit) {
 		return value;
 	}
 	else {
-		NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 		[dateFormatter setDateFormat:@"yyyy-MM-dd"];
 		id result;
 		if ([dateFormatter getObjectValue:&result forString:value errorDescription:nil]) {
 			return result;
 		}
 		
-		NSNumberFormatter *numberFormatter = [[[NSNumberFormatter alloc] init] autorelease];
+		NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
 		if ([numberFormatter getObjectValue:&result forString:value errorDescription:nil]) {
 			return result;
 		}
