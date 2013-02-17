@@ -23,6 +23,8 @@
     YMKMapView *_map;
     NSArray *_tags;
     BOOL isLoaded;
+    CLLocationManager *locman;
+    CLLocation *lastloc;
 }
 
 @end
@@ -35,6 +37,13 @@
     isLoaded = NO;
     [self setMap];
     self.menuView.center = CGPointMake(-(SCREEN_BOUNDS.size.width / 2), SCREEN_BOUNDS.size.height - self.menuView.frame.size.height);
+    locman = [[CLLocationManager alloc] init];
+    locman.delegate = self;
+    locman.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    // We don't want to be notified of small changes in location,
+    // preferring to use our last cached results, if any.
+    locman.distanceFilter = 50;
+    [locman startUpdatingLocation];
 }
 - (void)viewDidAppear:(BOOL)animated{
     if (!isLoaded){
@@ -117,7 +126,9 @@
 }
 
 - (IBAction)pressGPS:(id)sender {
-    NSLog(@"gps");
+    if (lastloc){
+         _map.region = YMKCoordinateRegionMake(lastloc.coordinate, YMKCoordinateSpanMake(0.02, 0.02));
+    }
 }
 
 - (IBAction)menuPressed:(UISegmentedControl*)menu {
@@ -213,6 +224,29 @@
          isKindOfClass:[UINavigationController class]]) {
         [topViewController dismissModalViewControllerAnimated:YES];
     }
+}
+#pragma mark -
+#pragma mark CLLocationManagerDelegate
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation
+{
+    if (!oldLocation ||
+        (oldLocation.coordinate.latitude != newLocation.coordinate.latitude &&
+         oldLocation.coordinate.longitude != newLocation.coordinate.longitude)) {
+            
+            // To-do, add code for triggering view controller update
+            NSLog(@"Got location: %f, %f",
+                  newLocation.coordinate.latitude,
+                  newLocation.coordinate.longitude);
+            lastloc = newLocation;
+            [manager stopUpdatingLocation];
+        }
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error {
+    NSLog(@"%@", error);
 }
 
 @end

@@ -62,14 +62,20 @@
         YMKPinAnnotationView *pin = [[YMKPinAnnotationView alloc] initWithAnnotation: annotation reuseIdentifier: @"Pin"];
         //アイコンイメージの変更
         pin.image=[UIImage imageNamed:@"moyapin.png"];
-        //アイコンのイメージのどこを基準点にするか設定
-        CGPoint centerOffset;
-        centerOffset.x=15;
-        centerOffset.y=15;
-        [pin setCenterOffset:centerOffset];
+        //吹き出しに表示するボタンを追加
+        UIButton * rightAccessoryButton = [UIButton buttonWithType: UIButtonTypeCustom];
+        [rightAccessoryButton setFrame:CGRectMake(0, 0, 29, 29)];
+        [rightAccessoryButton setBackgroundImage:[UIImage imageNamed:@"purple_arrow.png"] forState:UIControlStateNormal];
+        [pin setRightCalloutAccessoryView:rightAccessoryButton];
         return pin;
     }
     return nil;
+}
+//吹き出しボタンイベント
+- (void)mapView:(YMKMapView*)mapView annotationView:(YMKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    //押されたのがどのピンか判定
+    NSLog(@"hoge");
 }
 
 

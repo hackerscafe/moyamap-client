@@ -9,10 +9,11 @@
 
 #import <UIKit/UIKit.h>
 #import <YMapKit/YMapKit.h> //YMapKit.frameworkのヘッダーファイルをインポート
+#import <CoreLocation/CoreLocation.h>
 #import "MMMoyaImage.h"
 #import "MMLoginViewController.h"
 
-@interface MMViewController : UIViewController<YMKMapViewDelegate,UITextFieldDelegate,MMMoyaImageDelegate,MMLoginViewControllerDelegate>
+@interface MMViewController : UIViewController<YMKMapViewDelegate,UITextFieldDelegate,MMMoyaImageDelegate,MMLoginViewControllerDelegate,CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 @property (weak, nonatomic) IBOutlet UITextField *searchText;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
