@@ -23,5 +23,6 @@ typedef void(^MMFetchCompletionBlock)(NSArray *allRemote, NSError *error);
  */
 +(NSString *)representUrl;
 +(NSString *)resultKey;
+-(void)parseObject:(id)object ForKey:(NSString *)key;
 
 @end

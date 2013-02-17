@@ -11,7 +11,9 @@
 #import "MMMoyaActivity.h"
 
 @interface MMMoyaViewController ()
-
+{
+    NSArray *moyas;
+}
 @end
 
 @implementation MMMoyaViewController
@@ -21,6 +23,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.view.backgroundColor = [UIColor blackColor];
     }
     return self;
 }
@@ -33,9 +36,18 @@
     NSArray *keys = [NSArray arrayWithObjects:@"format", @"limit", @"page__page_tags__tags__slug", nil];
     NSArray *values = [NSArray arrayWithObjects:@"json", @"0", slug, nil];
     
+    moyas = nil;
     [MMMoyaActivity fetchAsyncWithParams:[NSDictionary dictionaryWithObjects:values forKeys:keys] async:^(NSArray *allRemote, NSError *error){
-        NSLog(@"ok");
+        [self showMoyas:allRemote];
     }];
+}
+- (void)viewWillAppear:(BOOL)animated{
+    self.view.backgroundColor = RGB(167, 191, 46);
+}
+
+- (void)showMoyas:(NSArray *)_moyas{
+    moyas = _moyas;
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,12 +67,22 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 10;
+    if (moyas == nil){
+        return 1;
+    }else{
+        return [moyas count];
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
+    if (!moyas){
+        UITableViewCell *cell = [[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"loading"];
+        cell.textLabel.text = @"Loading...";
+        return cell;
+    }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...

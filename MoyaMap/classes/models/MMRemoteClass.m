@@ -77,9 +77,7 @@
     NSDictionary *props = [MMPropertyUtil classPropsFor:[self class]];
     for (NSString *key in [props allKeys]){
         NSLog(@"key:%@", key);
-        if ([dict objectForKey:key]){
-            [self setValue:[dict objectForKey:key] forKey:key];
-        }
+        [self parseObject:[dict objectForKey:key] ForKey:key];
     }
     
 }
@@ -93,6 +91,12 @@
 +(NSString *)resultKey{
     [self doesNotRecognizeSelector:_cmd];
     return nil;
+}
+// optional
+-(void)parseObject:(id)object ForKey:(NSString *)key{
+    if (object){
+        [self setValue:object forKey:key];
+    }
 }
 
 @end
