@@ -24,20 +24,9 @@
     LOG(@"call:%@", strurl);
     [[self class] performSelector:@selector(fetchURL:async:) withObject:strurl withObject:completionBlock];
 }
-+(void)fetchURL:(NSString *)strurl async:(MMFetchCompletionBlock)completionBlock{
-    NSURL *url = [NSURL URLWithString:strurl];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"App.net Global Stream: %@", JSON);
-        NSArray *ret = [[self class] parseJSONArray:[JSON valueForKeyPath:[[self class] performSelector:@selector(resultKey)]]];
-        completionBlock(ret,nil);
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"App.net Error: %@", [error localizedDescription]);
-        completionBlock(nil,error);
-    }];
-    [operation start];
-    
-}
+/**
+ // read data from specified URI with parameters
+ */
 +(void)fetchAsyncWithParams:(NSDictionary *)params async:(MMFetchCompletionBlock)completionBlock{
     NSString *path = [[self class] performSelector:@selector(representUrl)];
     for (NSString *key in [params allKeys]){
@@ -51,6 +40,20 @@
     NSString *strurl = [NSString stringWithFormat:@"%@%@", [MMRemoteConfig defaultConfig].baseurl, path];
     LOG(@"call:%@", strurl);
     [[self class] performSelector:@selector(fetchURL:async:) withObject:strurl withObject:completionBlock];
+}
++(void)fetchURL:(NSString *)strurl async:(MMFetchCompletionBlock)completionBlock{
+    NSURL *url = [NSURL URLWithString:strurl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"App.net Global Stream: %@", JSON);
+        NSArray *ret = [[self class] parseJSONArray:[JSON valueForKeyPath:[[self class] performSelector:@selector(resultKey)]]];
+        completionBlock(ret,nil);
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"App.net Error: %@", [error localizedDescription]);
+        completionBlock(nil,error);
+    }];
+    [operation start];
+    
 }
 #pragma mark -
 #pragma mark internal method
