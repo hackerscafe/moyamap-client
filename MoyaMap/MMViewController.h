@@ -14,6 +14,9 @@
 @interface MMViewController : UIViewController<YMKMapViewDelegate,UITextFieldDelegate,MMMoyaImageDelegate>
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 @property (weak, nonatomic) IBOutlet UITextField *searchText;
+@property (weak, nonatomic) IBOutlet UIView *menuView;
+- (IBAction)toggleMenu:(id)sender;
+- (IBAction)pressGPS:(id)sender;
 
 
 @end

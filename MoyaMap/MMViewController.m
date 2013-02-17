@@ -26,6 +26,7 @@
     [MMMoyaTag fetchAsync:^(NSArray *allRemote, NSError *error) {
         [self setMoyas:allRemote];
     }];
+    self.menuView.center = CGPointMake(-(SCREEN_BOUNDS.size.width / 2), SCREEN_BOUNDS.size.height - self.menuView.frame.size.height);
 }
 - (void)setMap{
     _map = [[YMKMapView alloc] initWithFrame:SCREEN_BOUNDS appid:YJ_APP_ID];
@@ -69,6 +70,21 @@
     [self setOverlayView:nil];
     [self setSearchText:nil];
     [self setSearchText:nil];
+    [self setMenuView:nil];
     [super viewDidUnload];
+}
+- (IBAction)toggleMenu:(id)sender {
+    [UIView animateWithDuration:0.2f animations:^{
+    if (self.menuView.frame.origin.x < 0){
+        self.menuView.center = CGPointMake(SCREEN_BOUNDS.size.width - (_menuView.frame.size.width / 2), SCREEN_BOUNDS.size.height - self.menuView.frame.size.height);
+    }else{
+        self.menuView.center = CGPointMake(-(SCREEN_BOUNDS.size.width / 2), SCREEN_BOUNDS.size.height - self.menuView.frame.size.height);
+    }
+    }];
+
+}
+
+- (IBAction)pressGPS:(id)sender {
+    NSLog(@"gps");
 }
 @end

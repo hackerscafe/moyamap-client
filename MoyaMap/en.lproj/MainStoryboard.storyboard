@@ -29,13 +29,60 @@
                                         <rect key="frame" x="7" y="11" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SXn-Yt-JEu">
+                                        <rect key="frame" x="289" y="11" width="22" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="btn_gps.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pressGPS:" destination="2" eventType="touchUpInside" id="p3g-W7-R3e"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.42999999999999999" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="onP-Zd-Gb9">
+                                <rect key="frame" x="0.0" y="502" width="320" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" id="ICc-Sy-fFe">
+                                        <rect key="frame" x="68" y="9" width="247" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="自分のモヤ"/>
+                                            <segment title="友達のモヤ"/>
+                                            <segment title="モヤっとする"/>
+                                        </segments>
+                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ldQ-7n-aDo">
+                                <rect key="frame" x="7" y="465" width="67" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="menubutton.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleMenu:" destination="2" eventType="touchUpInside" id="tjo-9b-8jz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="menuView" destination="onP-Zd-Gb9" id="rFc-vy-JdE"/>
                         <outlet property="overlayView" destination="Iab-FF-5X4" id="5X7-P6-Mpb"/>
                         <outlet property="searchText" destination="Wl4-ZT-y7V" id="ZBH-e1-4wG"/>
                         <segue destination="DB0-hl-0T4" kind="modal" identifier="showTagView" animates="NO" id="iiJ-jY-iyp"/>
@@ -189,7 +236,9 @@
     </scenes>
     <resources>
         <image name="btn_close.png" width="23" height="23"/>
+        <image name="btn_gps.png" width="22" height="22"/>
         <image name="btn_map.png" width="61" height="29"/>
+        <image name="menubutton.png" width="67" height="73"/>
         <image name="moya_footer.png" width="320" height="77"/>
         <image name="moya_header.png" width="320" height="70"/>
         <image name="search_button.png" width="32" height="32"/>
@@ -206,6 +255,9 @@
         <class className="MMViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MMViewController.h"/>
             <relationships>
+                <relationship kind="action" name="pressGPS:"/>
+                <relationship kind="action" name="toggleMenu:"/>
+                <relationship kind="outlet" name="menuView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="overlayView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="searchText" candidateClass="UITextField"/>
             </relationships>

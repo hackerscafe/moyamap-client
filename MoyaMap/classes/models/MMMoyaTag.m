@@ -10,7 +10,6 @@
 
 @implementation MMMoyaTag
 
-
 +(NSString *)representUrl{
     return @"tag?format=json";
 }
