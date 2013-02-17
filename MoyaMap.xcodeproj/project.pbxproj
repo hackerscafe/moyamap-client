@@ -51,6 +51,7 @@
 		2B6DD24116CF75D200DA082A /* MMMoyaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6DD24016CF75D200DA082A /* MMMoyaViewController.m */; };
 		2B989A3A16D0F36F00296743 /* btn_place.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B989A3816D0F36F00296743 /* btn_place.png */; };
 		2B989A3B16D0F36F00296743 /* btn_place@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B989A3916D0F36F00296743 /* btn_place@2x.png */; };
+		2B989A3F16D1206800296743 /* YMKMapView+RegionUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B989A3E16D1206800296743 /* YMKMapView+RegionUtil.m */; };
 		2B9B26A716D08C3100DFA677 /* MMMoyaActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9B26A616D08C3100DFA677 /* MMMoyaActivity.m */; };
 		2B9B26B216D09A2300DFA677 /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = 2B9B26A916D09A2300DFA677 /* api.c */; };
 		2B9B26B316D09A2300DFA677 /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = 2B9B26AA16D09A2300DFA677 /* dumper.c */; };
@@ -189,6 +190,8 @@
 		2B6DD24016CF75D200DA082A /* MMMoyaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMMoyaViewController.m; path = classes/controllers/MMMoyaViewController.m; sourceTree = "<group>"; };
 		2B989A3816D0F36F00296743 /* btn_place.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_place.png; path = image/btn_place.png; sourceTree = "<group>"; };
 		2B989A3916D0F36F00296743 /* btn_place@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_place@2x.png"; path = "image/btn_place@2x.png"; sourceTree = "<group>"; };
+		2B989A3D16D1206800296743 /* YMKMapView+RegionUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "YMKMapView+RegionUtil.h"; path = "classes/utilities/YMKMapView+RegionUtil.h"; sourceTree = "<group>"; };
+		2B989A3E16D1206800296743 /* YMKMapView+RegionUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "YMKMapView+RegionUtil.m"; path = "classes/utilities/YMKMapView+RegionUtil.m"; sourceTree = "<group>"; };
 		2B9B26A516D08C3100DFA677 /* MMMoyaActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMMoyaActivity.h; path = classes/models/MMMoyaActivity.h; sourceTree = "<group>"; };
 		2B9B26A616D08C3100DFA677 /* MMMoyaActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMMoyaActivity.m; path = classes/models/MMMoyaActivity.m; sourceTree = "<group>"; };
 		2B9B26A916D09A2300DFA677 /* api.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = api.c; sourceTree = "<group>"; };
@@ -432,6 +435,15 @@
 			name = controllers;
 			sourceTree = "<group>";
 		};
+		2B989A3C16D1201A00296743 /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2B989A3D16D1206800296743 /* YMKMapView+RegionUtil.h */,
+				2B989A3E16D1206800296743 /* YMKMapView+RegionUtil.m */,
+			);
+			name = utilities;
+			sourceTree = "<group>";
+		};
 		2B9B26A816D09A2300DFA677 /* libyaml */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +510,7 @@
 		2BBE3A0416CF492100DF8344 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				2B989A3C16D1201A00296743 /* utilities */,
 				2BABF36616CF8541005B407B /* models */,
 				2B6DD23E16CF75B800DA082A /* controllers */,
 				2BBE3A1D16CF52EF00DF8344 /* views */,
@@ -782,6 +795,7 @@
 				2B2065AA16D0BFCA007319AE /* MMActivityViewController.m in Sources */,
 				2B2065AD16D0C9F3007319AE /* MMMoyaAnnotation.m in Sources */,
 				2B6D94EE16D0E14C00BDF4FB /* MMNewMoyaViewController.m in Sources */,
+				2B989A3F16D1206800296743 /* YMKMapView+RegionUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

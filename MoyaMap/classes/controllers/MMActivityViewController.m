@@ -10,6 +10,7 @@
 #import "MMCommon.h"
 #import "MMMoyaActivity.h"
 #import "MMMoyaAnnotation.h"
+#import "YMKMapView+RegionUtil.h"
 
 @interface MMActivityViewController ()
 {
@@ -33,7 +34,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _map = [[YMKMapView alloc] initWithFrame:SCREEN_BOUNDS appid:YJ_APP_ID];
+    CGRect frame = self.view.bounds;
+    frame.size.height -= self.navigationController.navigationBar.frame.size.height;
+    _map = [[YMKMapView alloc] initWithFrame:frame appid:YJ_APP_ID];
     _map.mapType = YMKMapTypeStandard;
     _map.delegate = self;
     //地図の位置と縮尺を設定
@@ -53,7 +56,7 @@
         //AnnotationをYMKMapViewに追加
         [_map addAnnotation:myAnnotation];
     }
-    
+    [_map fitRegionToCurrentAnnotations];
 }
 - (YMKAnnotationView*)mapView:(YMKMapView *)mapView viewForAnnotation:(MMMoyaAnnotation*)annotation{
     //追加されたAnnotationがMyAnnotationか確認

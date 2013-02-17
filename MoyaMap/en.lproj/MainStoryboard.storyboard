@@ -87,6 +87,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="buttonMenu" destination="ldQ-7n-aDo" id="Cgq-Ea-NMb"/>
                         <outlet property="menuView" destination="onP-Zd-Gb9" id="rFc-vy-JdE"/>
                         <outlet property="overlayView" destination="Iab-FF-5X4" id="5X7-P6-Mpb"/>
                         <outlet property="searchText" destination="Wl4-ZT-y7V" id="ZBH-e1-4wG"/>
@@ -559,6 +560,7 @@
                 <relationship kind="action" name="menuPressed:"/>
                 <relationship kind="action" name="pressGPS:"/>
                 <relationship kind="action" name="toggleMenu:"/>
+                <relationship kind="outlet" name="buttonMenu" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="menuView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="overlayView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="searchText" candidateClass="UITextField"/>

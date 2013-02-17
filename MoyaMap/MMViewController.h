@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 @property (weak, nonatomic) IBOutlet UITextField *searchText;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
+@property (weak, nonatomic) IBOutlet UIButton *buttonMenu;
 
 - (IBAction)toggleMenu:(id)sender;
 - (IBAction)pressGPS:(id)sender;

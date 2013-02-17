@@ -38,7 +38,9 @@
     [super viewDidLoad];
     isLoaded = NO;
     [self setMap];
-    self.menuView.center = CGPointMake(-(SCREEN_BOUNDS.size.width / 2), SCREEN_BOUNDS.size.height - self.menuView.frame.size.height);
+    NSLog(@"%f", self.view.bounds.size.height);
+    self.buttonMenu.center = CGPointMake(self.buttonMenu.center.x, self.view.bounds.size.height - self.menuView.frame.size.height);
+    self.menuView.center = CGPointMake(-(SCREEN_BOUNDS.size.width / 2), self.view.bounds.size.height - (self.menuView.frame.size.height / 2));
     locman = [[CLLocationManager alloc] init];
     locman.delegate = self;
     locman.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
@@ -115,14 +117,15 @@
     [self setSearchText:nil];
     [self setSearchText:nil];
     [self setMenuView:nil];
+    [self setButtonMenu:nil];
     [super viewDidUnload];
 }
 - (IBAction)toggleMenu:(id)sender {
-    [UIView animateWithDuration:0.2f animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
     if (self.menuView.frame.origin.x < 0){
-        self.menuView.center = CGPointMake(SCREEN_BOUNDS.size.width - (_menuView.frame.size.width / 2), SCREEN_BOUNDS.size.height - self.menuView.frame.size.height);
+        self.menuView.center = CGPointMake(SCREEN_BOUNDS.size.width - (_menuView.frame.size.width / 2), self.view.bounds.size.height - (self.menuView.frame.size.height / 2));
     }else{
-        self.menuView.center = CGPointMake(-(SCREEN_BOUNDS.size.width / 2), SCREEN_BOUNDS.size.height - self.menuView.frame.size.height);
+        self.menuView.center = CGPointMake(-(SCREEN_BOUNDS.size.width / 2), self.view.bounds.size.height - (self.menuView.frame.size.height / 2));
     }
     }];
 
