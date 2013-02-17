@@ -12,6 +12,7 @@
 #import "MMCommon.h"
 #import "MMMoyaTag.h"
 #import "MMLoginViewController.h"
+#import "AFNetworking.h"
 
 #define MENU_MYMOYA 0
 #define MENU_FRIENDMOYA 1
@@ -133,6 +134,21 @@
 - (void)logout{
     [FBSession.activeSession closeAndClearTokenInformation];
 }
+- (void)sendAccessToken:(NSString *)token{
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            token, @"token", nil
+                            ];
+    
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:
+                            [NSURL URLWithString:RAILS_APP_PATH]];
+    
+    [client postPath:@"/user_session" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *text = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"Response: %@", text);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }];
+}
 #pragma mark -
 #pragma mark Facebook methods
 - (void)sessionStateChanged:(FBSession *)session
@@ -146,6 +162,8 @@
                  isKindOfClass:[UINavigationController class]]) {
                 [topViewController dismissModalViewControllerAnimated:YES];
             }
+            NSString *token = session.accessToken;
+           [self sendAccessToken:token];
         }
             break;
         case FBSessionStateClosed:

@@ -11,6 +11,7 @@
 #define YJ_SECRET @"1bf6a9b7a7c9824a311bf7f1eb8a5edd78b0d735"
 
 #define SERVER_URL @"http://moya-map.trick-with.net/api/"
+#define RAILS_APP_PATH @"http://moya-map.trick-with.net:3000/"
 
 @interface MMCommon : NSObject
 
