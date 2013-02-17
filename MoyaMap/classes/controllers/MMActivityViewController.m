@@ -38,7 +38,7 @@
     _map.delegate = self;
     //地図の位置と縮尺を設定
     MMMoyaActivity *activity = (MMMoyaActivity *)[_activities objectAtIndex:0];
-    self.title = [NSString stringWithFormat:@"%@ のもや", self.tagname];
+    self.title = [NSString stringWithFormat:@"%@ のモヤ", self.tagname];
     _map.region = YMKCoordinateRegionMake(activity.location, YMKCoordinateSpanMake(0.02, 0.02));
     
     [self.view addSubview:_map];

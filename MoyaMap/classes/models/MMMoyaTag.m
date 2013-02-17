@@ -7,14 +7,23 @@
 //
 
 #import "MMMoyaTag.h"
+#import "MMRemoteConfig.h"
 
 @implementation MMMoyaTag
 
 +(NSString *)representUrl{
-    return @"tag?format=json";
+    return @"get_user_tags?user_type=all";
 }
 +(NSString *)resultKey{
     return @"objects";
 }
 
++(void)fetchMyTag:(MMFetchCompletionBlock)completionBlock{
+    NSString *url = [[MMRemoteConfig defaultConfig].baseurl stringByAppendingString:@"get_user_tags?user_type=me" ];
+    [MMMoyaTag fetchURL:url async:completionBlock];
+}
++(void)fetchFriendTag:(MMFetchCompletionBlock)completionBlock{
+    NSString *url = [[MMRemoteConfig defaultConfig].baseurl stringByAppendingString:@"get_user_tags?user_type=friend" ];
+    [MMMoyaTag fetchURL:url async:completionBlock];
+}
 @end

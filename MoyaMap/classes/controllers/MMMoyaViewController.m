@@ -95,7 +95,7 @@
     if (!moyas){
         MMLoadingCell *cell = [[MMLoadingCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MMLoadingCell"];
         cell.contentView.backgroundColor = [UIColor whiteColor];
-        cell.textLabel.text = @"ローディング中・・・";
+        cell.textLabel.text = @"ロード中・・・";
         cell.textLabel.backgroundColor = [UIColor whiteColor];
         return cell;
     }

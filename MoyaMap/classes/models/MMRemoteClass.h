@@ -25,4 +25,10 @@ typedef void(^MMFetchCompletionBlock)(NSArray *allRemote, NSError *error);
 +(NSString *)resultKey;
 -(void)parseObject:(id)object ForKey:(NSString *)key;
 
+/*
+ // internal methods
+ */
++(void)fetchURL:(NSString *)strurl async:(MMFetchCompletionBlock)completionBlock;
+
+
 @end

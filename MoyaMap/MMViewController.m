@@ -15,13 +15,15 @@
 #import "MMNewMoyaViewController.h"
 #import "AFNetworking.h"
 
-#define MENU_MYMOYA 0
-#define MENU_FRIENDMOYA 1
-#define MENU_NEWMOYA 2
+#define MENU_ALLMOYA 0
+#define MENU_MYMOYA 1
+#define MENU_FRIENDMOYA 2
+#define MENU_NEWMOYA 3
 
 @interface MMViewController (){
     YMKMapView *_map;
     NSArray *_tags;
+    NSMutableArray *_moyatags;
     BOOL isLoaded;
     CLLocationManager *locman;
     CLLocation *lastloc;
@@ -44,6 +46,10 @@
     // preferring to use our last cached results, if any.
     locman.distanceFilter = 50;
     [locman startUpdatingLocation];
+    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+        // Yes, so just open the session (this won't display any UX).
+        [self openSession];
+    }
 }
 - (void)viewDidAppear:(BOOL)animated{
     if (!isLoaded){
@@ -53,7 +59,6 @@
         }];
 
     }
-
 }
 - (void)setMap{
     _map = [[YMKMapView alloc] initWithFrame:SCREEN_BOUNDS appid:YJ_APP_ID];
@@ -68,10 +73,21 @@
     [self.view insertSubview:_map belowSubview:self.overlayView];
 }
 - (void)setMoyas:(NSArray *)moyas{
+    _moyatags = [NSMutableArray arrayWithCapacity:0];
     for (MMMoyaTag *tag in moyas){
         NSLog(@"resource_uri:%@", tag.resource_uri);
         MMMoyaImage *moya = [[MMMoyaImage alloc] initWithMoya:tag andDelegate:self];
+        [_moyatags addObject:moya];
         [_map addSubview:moya];
+    }
+}
+- (void)removeTags{
+    for (MMMoyaImage *img in _moyatags){
+        [UIView animateWithDuration:0.2f animations:^{
+            img.transform = CGAffineTransformMakeScale(0.1f, 0.1f);
+        } completion:^(BOOL finished) {
+            [img removeFromSuperview];
+        }];
     }
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -145,11 +161,22 @@
     
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         // To-do, show menu
-        if (menu.selectedSegmentIndex == MENU_MYMOYA){
+        if (menu.selectedSegmentIndex == MENU_ALLMOYA){
+            [self removeTags];
+            [MMMoyaTag fetchAsync:^(NSArray *allRemote, NSError *error) {
+                [self setMoyas:allRemote];
+            }];
+        }else if (menu.selectedSegmentIndex == MENU_MYMOYA){
+            [self removeTags];
+            [MMMoyaTag fetchMyTag:^(NSArray *allRemote, NSError *error) {
+                [self setMoyas:allRemote];
+            }];
         
         }else if(menu.selectedSegmentIndex == MENU_FRIENDMOYA){
-            // for test
-            //[self logout];
+            [self removeTags];
+            [MMMoyaTag fetchFriendTag:^(NSArray *allRemote, NSError *error) {
+                [self setMoyas:allRemote];
+            }];
         }else if (menu.selectedSegmentIndex == MENU_NEWMOYA){
             [self showNewMoyaView];
         }
@@ -217,14 +244,17 @@
 
 - (void)openSession
 {
-    if (FBSession.activeSession.accessToken) return;
-    [FBSession openActiveSessionWithReadPermissions:nil
+    if (FBSession.activeSession.accessToken){
+        [self sendAccessToken:FBSession.activeSession.accessToken];
+    }else{
+        [FBSession openActiveSessionWithReadPermissions:nil
                                        allowLoginUI:YES
                                   completionHandler:
-     ^(FBSession *session,
-       FBSessionState state, NSError *error) {
-         [self sessionStateChanged:session state:state error:error];
-     }];
+         ^(FBSession *session,
+           FBSessionState state, NSError *error) {
+             [self sessionStateChanged:session state:state error:error];
+         }];
+    }
 }
 - (void)cancelSession{
     [self closeLogin];

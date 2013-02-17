@@ -13,4 +13,8 @@
 @property(nonatomic,retain) NSString *name;
 @property(nonatomic,retain) NSString *resource_uri;
 @property(nonatomic,retain) NSString *slug;
+
++(void)fetchMyTag:(MMFetchCompletionBlock)completionBlock;
++(void)fetchFriendTag:(MMFetchCompletionBlock)completionBlock;
+
 @end
