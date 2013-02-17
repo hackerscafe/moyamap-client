@@ -9,6 +9,7 @@
 #import "MMActivityViewController.h"
 #import "MMCommon.h"
 #import "MMMoyaActivity.h"
+#import "MMMoyaAnnotation.h"
 
 @interface MMActivityViewController ()
 {
@@ -41,6 +42,18 @@
     _map.region = YMKCoordinateRegionMake(activity.location, YMKCoordinateSpanMake(0.02, 0.02));
     
     [self.view addSubview:_map];
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [self setPins];
+}
+- (void)setPins{
+    for (MMMoyaActivity *activity in _activities){
+        //MyAnnotationの初期化
+        MMMoyaAnnotation* myAnnotation = [[MMMoyaAnnotation alloc] initWithLocationCoordinate:activity.location title:activity.location_name subtitle:activity.message];
+        //AnnotationをYMKMapViewに追加
+        [_map addAnnotation:myAnnotation];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning

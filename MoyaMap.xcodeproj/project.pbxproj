@@ -36,6 +36,7 @@
 		2B2065A416D0AD04007319AE /* MMMoyaActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2065A316D0AD04007319AE /* MMMoyaActivityCell.m */; };
 		2B2065A716D0B605007319AE /* MMLoadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2065A616D0B605007319AE /* MMLoadingCell.m */; };
 		2B2065AA16D0BFCA007319AE /* MMActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2065A916D0BFC9007319AE /* MMActivityViewController.m */; };
+		2B2065AD16D0C9F3007319AE /* MMMoyaAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2065AC16D0C9F3007319AE /* MMMoyaAnnotation.m */; };
 		2B6DD22816CF60A100DA082A /* moya_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DD22616CF60A100DA082A /* moya_on.png */; };
 		2B6DD22916CF60A100DA082A /* moya_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DD22716CF60A100DA082A /* moya_on@2x.png */; };
 		2B6DD23616CF747D00DA082A /* moya_footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DD23216CF747D00DA082A /* moya_footer.png */; };
@@ -165,6 +166,8 @@
 		2B2065A616D0B605007319AE /* MMLoadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMLoadingCell.m; path = classes/layers/MMLoadingCell.m; sourceTree = "<group>"; };
 		2B2065A816D0BFC9007319AE /* MMActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMActivityViewController.h; path = classes/controllers/MMActivityViewController.h; sourceTree = "<group>"; };
 		2B2065A916D0BFC9007319AE /* MMActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMActivityViewController.m; path = classes/controllers/MMActivityViewController.m; sourceTree = "<group>"; };
+		2B2065AB16D0C9F3007319AE /* MMMoyaAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMMoyaAnnotation.h; path = classes/layers/MMMoyaAnnotation.h; sourceTree = "<group>"; };
+		2B2065AC16D0C9F3007319AE /* MMMoyaAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMMoyaAnnotation.m; path = classes/layers/MMMoyaAnnotation.m; sourceTree = "<group>"; };
 		2B6DD22616CF60A100DA082A /* moya_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moya_on.png; sourceTree = "<group>"; };
 		2B6DD22716CF60A100DA082A /* moya_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moya_on@2x.png"; sourceTree = "<group>"; };
 		2B6DD23216CF747D00DA082A /* moya_footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moya_footer.png; sourceTree = "<group>"; };
@@ -542,6 +545,8 @@
 				2B2065A316D0AD04007319AE /* MMMoyaActivityCell.m */,
 				2B2065A516D0B605007319AE /* MMLoadingCell.h */,
 				2B2065A616D0B605007319AE /* MMLoadingCell.m */,
+				2B2065AB16D0C9F3007319AE /* MMMoyaAnnotation.h */,
+				2B2065AC16D0C9F3007319AE /* MMMoyaAnnotation.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -754,6 +759,7 @@
 				2B2065A416D0AD04007319AE /* MMMoyaActivityCell.m in Sources */,
 				2B2065A716D0B605007319AE /* MMLoadingCell.m in Sources */,
 				2B2065AA16D0BFCA007319AE /* MMActivityViewController.m in Sources */,
+				2B2065AD16D0C9F3007319AE /* MMMoyaAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
