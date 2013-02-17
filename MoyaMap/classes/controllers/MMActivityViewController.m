@@ -55,6 +55,23 @@
     }
     
 }
+- (YMKAnnotationView*)mapView:(YMKMapView *)mapView viewForAnnotation:(MMMoyaAnnotation*)annotation{
+    //追加されたAnnotationがMyAnnotationか確認
+    if( [annotation isKindOfClass:[MMMoyaAnnotation class]] ){
+        //YMKPinAnnotationViewを作成
+        YMKPinAnnotationView *pin = [[YMKPinAnnotationView alloc] initWithAnnotation: annotation reuseIdentifier: @"Pin"];
+        //アイコンイメージの変更
+        pin.image=[UIImage imageNamed:@"moyapin.png"];
+        //アイコンのイメージのどこを基準点にするか設定
+        CGPoint centerOffset;
+        centerOffset.x=15;
+        centerOffset.y=15;
+        [pin setCenterOffset:centerOffset];
+        return pin;
+    }
+    return nil;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
