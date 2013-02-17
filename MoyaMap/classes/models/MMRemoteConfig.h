@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+@class AFJSONRequestOperation;
 
 @interface MMRemoteConfig : NSObject
 @property(nonatomic,strong) NSString *baseurl;
+@property(nonatomic,strong) AFJSONRequestOperation *operation;
+
 
 + (MMRemoteConfig *) defaultConfig;
+
 @end

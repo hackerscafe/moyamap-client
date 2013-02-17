@@ -55,6 +55,16 @@
 		2BABF37D16D058C7005B407B /* menubutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BABF37B16D058C7005B407B /* menubutton@2x.png */; };
 		2BABF38016D05CBF005B407B /* btn_gps.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BABF37E16D05CBF005B407B /* btn_gps.png */; };
 		2BABF38116D05CBF005B407B /* btn_gps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BABF37F16D05CBF005B407B /* btn_gps@2x.png */; };
+		2BABF38316D05F2B005B407B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BABF38216D05F2B005B407B /* FacebookSDK.framework */; };
+		2BABF38516D05F7B005B407B /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2BABF38416D05F7B005B407B /* FacebookSDKResources.bundle */; };
+		2BABF38716D05F9E005B407B /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2BABF38616D05F9E005B407B /* FBUserSettingsViewResources.bundle */; };
+		2BABF39016D0604B005B407B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BABF38E16D06005005B407B /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		2BABF39116D0604B005B407B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BABF38A16D05FE2005B407B /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		2BABF39216D0604B005B407B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BABF38816D05FDB005B407B /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		2BABF39516D06202005B407B /* MMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF39416D06202005B407B /* MMLoginViewController.m */; };
+		2BABF39816D062FB005B407B /* bgimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BABF39616D062FB005B407B /* bgimage.png */; };
+		2BABF39916D062FB005B407B /* bgimage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BABF39716D062FB005B407B /* bgimage@2x.png */; };
+		2BABF39D16D0693E005B407B /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BABF39C16D0693E005B407B /* facebook.png */; };
 		2BBE39D616CF48B700DF8344 /* YMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BBE39D516CF48B700DF8344 /* YMapKit.framework */; };
 		2BBE39EE16CF48CF00DF8344 /* compass48.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE39D816CF48CF00DF8344 /* compass48.png */; };
 		2BBE39EF16CF48CF00DF8344 /* compass48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BBE39D916CF48CF00DF8344 /* compass48@2x.png */; };
@@ -164,6 +174,17 @@
 		2BABF37B16D058C7005B407B /* menubutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menubutton@2x.png"; path = "image/menubutton@2x.png"; sourceTree = "<group>"; };
 		2BABF37E16D05CBF005B407B /* btn_gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_gps.png; path = image/btn_gps.png; sourceTree = "<group>"; };
 		2BABF37F16D05CBF005B407B /* btn_gps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_gps@2x.png"; path = "image/btn_gps@2x.png"; sourceTree = "<group>"; };
+		2BABF38216D05F2B005B407B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		2BABF38416D05F7B005B407B /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		2BABF38616D05F9E005B407B /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
+		2BABF38816D05FDB005B407B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		2BABF38A16D05FE2005B407B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		2BABF38E16D06005005B407B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		2BABF39316D06202005B407B /* MMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMLoginViewController.h; path = classes/controllers/MMLoginViewController.h; sourceTree = "<group>"; };
+		2BABF39416D06202005B407B /* MMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMLoginViewController.m; path = classes/controllers/MMLoginViewController.m; sourceTree = "<group>"; };
+		2BABF39616D062FB005B407B /* bgimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgimage.png; path = image/bgimage.png; sourceTree = "<group>"; };
+		2BABF39716D062FB005B407B /* bgimage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bgimage@2x.png"; path = "image/bgimage@2x.png"; sourceTree = "<group>"; };
+		2BABF39C16D0693E005B407B /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		2BBE39D516CF48B700DF8344 /* YMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YMapKit.framework; sourceTree = "<group>"; };
 		2BBE39D816CF48CF00DF8344 /* compass48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compass48.png; path = ../ymapimage/compass48.png; sourceTree = "<group>"; };
 		2BBE39D916CF48CF00DF8344 /* compass48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compass48@2x.png"; path = "../ymapimage/compass48@2x.png"; sourceTree = "<group>"; };
@@ -213,11 +234,15 @@
 				2BBE3A0F16CF4AED00DF8344 /* OpenGLES.framework in Frameworks */,
 				2BBE3A0D16CF4AE200DF8344 /* SystemConfiguration.framework in Frameworks */,
 				2BBE3A0B16CF4AA200DF8344 /* CoreLocation.framework in Frameworks */,
+				2BABF39016D0604B005B407B /* Social.framework in Frameworks */,
+				2BABF39116D0604B005B407B /* Accounts.framework in Frameworks */,
+				2BABF39216D0604B005B407B /* AdSupport.framework in Frameworks */,
 				2B092D7616CF0CC000D72D4E /* UIKit.framework in Frameworks */,
 				2B092D7816CF0CC000D72D4E /* Foundation.framework in Frameworks */,
 				2B092D7A16CF0CC000D72D4E /* CoreGraphics.framework in Frameworks */,
 				2BBE39D616CF48B700DF8344 /* YMapKit.framework in Frameworks */,
 				C77D0469D50D44BC831E64D1 /* libPods.a in Frameworks */,
+				2BABF38316D05F2B005B407B /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +282,12 @@
 		2B092D7416CF0CC000D72D4E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2BABF38E16D06005005B407B /* Social.framework */,
+				2BABF38A16D05FE2005B407B /* Accounts.framework */,
+				2BABF38816D05FDB005B407B /* AdSupport.framework */,
+				2BABF38616D05F9E005B407B /* FBUserSettingsViewResources.bundle */,
+				2BABF38416D05F7B005B407B /* FacebookSDKResources.bundle */,
+				2BABF38216D05F2B005B407B /* FacebookSDK.framework */,
 				2BBE3A1216CF4B0300DF8344 /* libxml2.2.dylib */,
 				2BBE3A1016CF4AF500DF8344 /* QuartzCore.framework */,
 				2BBE3A0E16CF4AED00DF8344 /* OpenGLES.framework */,
@@ -344,6 +375,8 @@
 			children = (
 				2B6DD23F16CF75D200DA082A /* MMMoyaViewController.h */,
 				2B6DD24016CF75D200DA082A /* MMMoyaViewController.m */,
+				2BABF39316D06202005B407B /* MMLoginViewController.h */,
+				2BABF39416D06202005B407B /* MMLoginViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -418,6 +451,9 @@
 		2BBE3A1416CF4C4800DF8344 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2BABF39C16D0693E005B407B /* facebook.png */,
+				2BABF39616D062FB005B407B /* bgimage.png */,
+				2BABF39716D062FB005B407B /* bgimage@2x.png */,
 				2BABF37E16D05CBF005B407B /* btn_gps.png */,
 				2BABF37F16D05CBF005B407B /* btn_gps@2x.png */,
 				2BABF37A16D058C7005B407B /* menubutton.png */,
@@ -581,6 +617,11 @@
 				2BABF37D16D058C7005B407B /* menubutton@2x.png in Resources */,
 				2BABF38016D05CBF005B407B /* btn_gps.png in Resources */,
 				2BABF38116D05CBF005B407B /* btn_gps@2x.png in Resources */,
+				2BABF38516D05F7B005B407B /* FacebookSDKResources.bundle in Resources */,
+				2BABF38716D05F9E005B407B /* FBUserSettingsViewResources.bundle in Resources */,
+				2BABF39816D062FB005B407B /* bgimage.png in Resources */,
+				2BABF39916D062FB005B407B /* bgimage@2x.png in Resources */,
+				2BABF39D16D0693E005B407B /* facebook.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +681,7 @@
 				2BABF37216CF92B9005B407B /* MMRemoteConfig.m in Sources */,
 				2BABF37616CF9DCF005B407B /* AFJSONRequestOperation+MMLocalWikiJSONRequestOperation.m in Sources */,
 				2BABF37916CFA211005B407B /* MMPropertyUtil.m in Sources */,
+				2BABF39516D06202005B407B /* MMLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,6 +799,16 @@
 				GCC_PREFIX_HEADER = "MoyaMap/MoyaMap-Prefix.pch";
 				INFOPLIST_FILE = "MoyaMap/MoyaMap-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CoreData,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					SystemConfiguration,
+					"-lsqlite3.0",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -774,6 +826,16 @@
 				GCC_PREFIX_HEADER = "MoyaMap/MoyaMap-Prefix.pch";
 				INFOPLIST_FILE = "MoyaMap/MoyaMap-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CoreData,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					SystemConfiguration,
+					"-lsqlite3.0",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

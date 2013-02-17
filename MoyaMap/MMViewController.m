@@ -6,13 +6,21 @@
 //  Copyright (c) 2013 Hacker's Cafe. All rights reserved.
 //
 
+#import <FacebookSDK/FacebookSDK.h>
+
 #import "MMViewController.h"
 #import "MMCommon.h"
 #import "MMMoyaTag.h"
+#import "MMLoginViewController.h"
+
+#define MENU_MYMOYA 0
+#define MENU_FRIENDMOYA 1
+#define MENU_NEWMOYA 2
 
 @interface MMViewController (){
     YMKMapView *_map;
     NSArray *_tags;
+    BOOL isLoaded;
 }
 
 @end
@@ -22,11 +30,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    isLoaded = NO;
     [self setMap];
-    [MMMoyaTag fetchAsync:^(NSArray *allRemote, NSError *error) {
-        [self setMoyas:allRemote];
-    }];
     self.menuView.center = CGPointMake(-(SCREEN_BOUNDS.size.width / 2), SCREEN_BOUNDS.size.height - self.menuView.frame.size.height);
+}
+- (void)viewDidAppear:(BOOL)animated{
+    if (!isLoaded){
+        isLoaded = YES;
+        [MMMoyaTag fetchAsync:^(NSArray *allRemote, NSError *error) {
+            [self setMoyas:allRemote];
+        }];
+
+    }
 }
 - (void)setMap{
     _map = [[YMKMapView alloc] initWithFrame:SCREEN_BOUNDS appid:YJ_APP_ID];
@@ -83,8 +98,90 @@
     }];
 
 }
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showLoginView"]) {
+        UINavigationController *controller = (UINavigationController *)[segue destinationViewController];
+        MMLoginViewController *login = (MMLoginViewController*)controller.topViewController;
+        login.delegate = self;
+    }
+}
+
+- (void)showLoginView{
+    [self performSegueWithIdentifier:@"showLoginView" sender:self];
+}
 
 - (IBAction)pressGPS:(id)sender {
     NSLog(@"gps");
 }
+
+- (IBAction)menuPressed:(UISegmentedControl*)menu {
+    // See if we have a valid token for the current state.
+    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+        // To-do, show menu
+        if (menu.selectedSegmentIndex == MENU_MYMOYA){
+        
+        }else if(menu.selectedSegmentIndex == MENU_FRIENDMOYA){
+            // for test
+            [self logout];
+        }
+    } else {
+        // No, display the login page.
+       [self showLoginView];
+    }
+}
+- (void)logout{
+    [FBSession.activeSession closeAndClearTokenInformation];
+}
+#pragma mark -
+#pragma mark Facebook methods
+- (void)sessionStateChanged:(FBSession *)session
+                      state:(FBSessionState) state
+                      error:(NSError *)error
+{
+    switch (state) {
+       case FBSessionStateOpen: {
+           UIViewController *topViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+            if ([[topViewController modalViewController]
+                 isKindOfClass:[UINavigationController class]]) {
+                [topViewController dismissModalViewControllerAnimated:YES];
+            }
+        }
+            break;
+        case FBSessionStateClosed:
+        case FBSessionStateClosedLoginFailed: {
+           UIViewController *topViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+            if ([[topViewController modalViewController]
+                 isKindOfClass:[UINavigationController class]]) {
+                [topViewController dismissModalViewControllerAnimated:YES];
+            }
+            [FBSession.activeSession closeAndClearTokenInformation];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    if (error) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Error"
+                                  message:error.localizedDescription
+                                  delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
+- (void)openSession
+{
+    [FBSession openActiveSessionWithReadPermissions:nil
+                                       allowLoginUI:YES
+                                  completionHandler:
+     ^(FBSession *session,
+       FBSessionState state, NSError *error) {
+         [self sessionStateChanged:session state:state error:error];
+     }];
+}
+
 @end

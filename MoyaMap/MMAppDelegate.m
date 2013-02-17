@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Hacker's Cafe. All rights reserved.
 //
 
+#import <FacebookSDK/FacebookSDK.h>
 #import "MMAppDelegate.h"
 #import "NSRails.h"
 #import "MMCommon.h"
@@ -19,6 +20,14 @@
 
     // Override point for customization after application launch.
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [FBSession.activeSession handleOpenURL:url];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

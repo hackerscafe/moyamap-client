@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MMLoginViewControllerDelegate <NSObject>
+
+- (void)openSession;
+
+@end
+
 @interface MMLoginViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
+@property (nonatomic, unsafe_unretained) id<MMLoginViewControllerDelegate> delegate;
+- (IBAction)pressLogin:(id)sender;
 
 @end

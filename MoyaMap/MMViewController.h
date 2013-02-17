@@ -10,13 +10,15 @@
 #import <UIKit/UIKit.h>
 #import <YMapKit/YMapKit.h> //YMapKit.frameworkのヘッダーファイルをインポート
 #import "MMMoyaImage.h"
+#import "MMLoginViewController.h"
 
-@interface MMViewController : UIViewController<YMKMapViewDelegate,UITextFieldDelegate,MMMoyaImageDelegate>
+@interface MMViewController : UIViewController<YMKMapViewDelegate,UITextFieldDelegate,MMMoyaImageDelegate,MMLoginViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 @property (weak, nonatomic) IBOutlet UITextField *searchText;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 - (IBAction)toggleMenu:(id)sender;
 - (IBAction)pressGPS:(id)sender;
+- (IBAction)menuPressed:(id)sender;
 
 
 @end

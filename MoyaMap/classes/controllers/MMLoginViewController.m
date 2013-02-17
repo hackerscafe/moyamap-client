@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Hacker's Cafe. All rights reserved.
 //
 
+#import <FacebookSDK/FacebookSDK.h>
 #import "MMLoginViewController.h"
 
 @interface MMLoginViewController ()
@@ -35,4 +36,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setIndicator:nil];
+    [super viewDidUnload];
+}
+- (IBAction)pressLogin:(id)sender {
+    [self.indicator startAnimating];
+
+    [_delegate openSession];
+}
 @end
