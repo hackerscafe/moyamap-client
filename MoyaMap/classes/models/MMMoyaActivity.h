@@ -18,4 +18,6 @@
 @property(nonatomic,strong) NSString *picture_url;
 @property(nonatomic,strong) NSDate *time;
 
+-(NSString *)strTime;
+
 @end

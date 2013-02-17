@@ -33,6 +33,8 @@
 		2B092DC216CF3FEA00D72D4E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B092DB816CF3FEA00D72D4E /* Icon@2x.png */; };
 		2B092DC316CF3FEA00D72D4E /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B092DB916CF3FEA00D72D4E /* iTunesArtwork.png */; };
 		2B092DC416CF3FEA00D72D4E /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B092DBA16CF3FEA00D72D4E /* iTunesArtwork@2x.png */; };
+		2B2065A416D0AD04007319AE /* MMMoyaActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2065A316D0AD04007319AE /* MMMoyaActivityCell.m */; };
+		2B2065A716D0B605007319AE /* MMLoadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2065A616D0B605007319AE /* MMLoadingCell.m */; };
 		2B6DD22816CF60A100DA082A /* moya_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DD22616CF60A100DA082A /* moya_on.png */; };
 		2B6DD22916CF60A100DA082A /* moya_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DD22716CF60A100DA082A /* moya_on@2x.png */; };
 		2B6DD23616CF747D00DA082A /* moya_footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DD23216CF747D00DA082A /* moya_footer.png */; };
@@ -156,6 +158,10 @@
 		2B092DB816CF3FEA00D72D4E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		2B092DB916CF3FEA00D72D4E /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		2B092DBA16CF3FEA00D72D4E /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		2B2065A216D0AD04007319AE /* MMMoyaActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMMoyaActivityCell.h; path = classes/layers/MMMoyaActivityCell.h; sourceTree = "<group>"; };
+		2B2065A316D0AD04007319AE /* MMMoyaActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMMoyaActivityCell.m; path = classes/layers/MMMoyaActivityCell.m; sourceTree = "<group>"; };
+		2B2065A516D0B605007319AE /* MMLoadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMLoadingCell.h; path = classes/layers/MMLoadingCell.h; sourceTree = "<group>"; };
+		2B2065A616D0B605007319AE /* MMLoadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMLoadingCell.m; path = classes/layers/MMLoadingCell.m; sourceTree = "<group>"; };
 		2B6DD22616CF60A100DA082A /* moya_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moya_on.png; sourceTree = "<group>"; };
 		2B6DD22716CF60A100DA082A /* moya_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moya_on@2x.png"; sourceTree = "<group>"; };
 		2B6DD23216CF747D00DA082A /* moya_footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moya_footer.png; sourceTree = "<group>"; };
@@ -473,7 +479,7 @@
 			children = (
 				2BABF36616CF8541005B407B /* models */,
 				2B6DD23E16CF75B800DA082A /* controllers */,
-				2BBE3A1D16CF52EF00DF8344 /* layers */,
+				2BBE3A1D16CF52EF00DF8344 /* views */,
 				2BBE3A0516CF492600DF8344 /* common */,
 			);
 			name = classes;
@@ -522,13 +528,17 @@
 			name = images;
 			sourceTree = "<group>";
 		};
-		2BBE3A1D16CF52EF00DF8344 /* layers */ = {
+		2BBE3A1D16CF52EF00DF8344 /* views */ = {
 			isa = PBXGroup;
 			children = (
 				2BBE3A1E16CF531E00DF8344 /* MMMoyaImage.h */,
 				2BBE3A1F16CF531E00DF8344 /* MMMoyaImage.m */,
+				2B2065A216D0AD04007319AE /* MMMoyaActivityCell.h */,
+				2B2065A316D0AD04007319AE /* MMMoyaActivityCell.m */,
+				2B2065A516D0B605007319AE /* MMLoadingCell.h */,
+				2B2065A616D0B605007319AE /* MMLoadingCell.m */,
 			);
-			name = layers;
+			name = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -736,6 +746,8 @@
 				2B9B26B816D09A2300DFA677 /* scanner.c in Sources */,
 				2B9B26B916D09A2300DFA677 /* writer.c in Sources */,
 				2B9B26BC16D09B0200DFA677 /* YamlParser.m in Sources */,
+				2B2065A416D0AD04007319AE /* MMMoyaActivityCell.m in Sources */,
+				2B2065A716D0B605007319AE /* MMLoadingCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

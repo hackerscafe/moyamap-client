@@ -27,11 +27,12 @@
         NSString *content = [page objectForKey:@"content"];
         content = [[content stringByReplacingOccurrencesOfString:@"<pre>---" withString:@""] stringByReplacingOccurrencesOfString:@"</pre>" withString:@""];
         NSDictionary *yaml = (NSDictionary *)[YamlParser objectFromString:content];
-            self.location_name = [yaml objectForKey:@":location_name"];
-            self.message = [yaml objectForKey:@":message"];
-            self.user_name = [yaml objectForKey:@":user_name"];
-            self.user_id = [yaml objectForKey:@":user_id"];
-            self.picture_url = [yaml objectForKey:@":picture_url"];
+        self.location_name = [yaml objectForKey:@":location_name"];
+        self.message = [yaml objectForKey:@":message"];
+        self.user_name = [yaml objectForKey:@":user_name"];
+        self.user_id = [yaml objectForKey:@":user_id"];
+        self.picture_url = [yaml objectForKey:@":picture_url"];
+        self.time = [self parseTime:[yaml objectForKey:@":time"]];
     }else if ([key isEqualToString:@"location_name"] ||
               [key isEqualToString:@"message"] ||
               [key isEqualToString:@"user_name"] ||
@@ -44,6 +45,19 @@
         [super parseObject:object ForKey:key];
     }
 }
+-(NSDate *)parseTime:(NSString *)strtime{
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    //2010-12-01T21:35:43+0000
+    [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZ"];
+    return [df dateFromString:strtime];
+    //return [df dateFromString:[strtime stringByReplacingOccurrencesOfString:@"T" withString:@""]];
+}
 
+-(NSString *)strTime{
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    //2010-12-01T21:35:43+0000
+    [df setDateFormat:@"MMM/dd, yyyy"];
+    return [df stringFromDate:self.time];
+}
 
 @end

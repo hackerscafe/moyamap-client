@@ -9,6 +9,8 @@
 #import "MMMoyaViewController.h"
 #import "MMMoyaTag.h"
 #import "MMMoyaActivity.h"
+#import "MMMoyaActivityCell.h"
+#import "MMLoadingCell.h"
 
 @interface MMMoyaViewController ()
 {
@@ -43,6 +45,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     self.view.backgroundColor = RGB(167, 191, 46);
+    self.labelTag.text = [NSString stringWithFormat:@"タグ：%@",_moyatag.name];
 }
 
 - (void)showMoyas:(NSArray *)_moyas{
@@ -77,17 +80,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"MMMoyaActivityCell";
     if (!moyas){
-        UITableViewCell *cell = [[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"loading"];
-        cell.textLabel.text = @"Loading...";
+        MMLoadingCell *cell = [[MMLoadingCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MMLoadingCell"];
+        cell.contentView.backgroundColor = [UIColor whiteColor];
+        cell.textLabel.text = @"ローディング中・・・";
+        cell.textLabel.backgroundColor = [UIColor whiteColor];
         return cell;
     }
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    MMMoyaActivity *activity = [moyas objectAtIndex:indexPath.row];
+    MMMoyaActivityCell *acell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    if (!acell){
+        acell = [[MMMoyaActivityCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    acell.name.text = activity.user_name;
+    acell.message.text = activity.message;
+    acell.image.image = [UIImage imageWithData: [NSData dataWithContentsOfURL: [NSURL URLWithString:activity.picture_url ]] ];
+    acell.time.text = [activity strTime];
     
-    // Configure the cell...
-    
-    return cell;
+    return acell;
 }
 
 /*
@@ -161,6 +172,7 @@
 }
 - (void)viewDidUnload {
     [self setFooterView:nil];
+    [self setLabelTag:nil];
     [super viewDidUnload];
 }
 @end

@@ -128,7 +128,7 @@
         
         }else if(menu.selectedSegmentIndex == MENU_FRIENDMOYA){
             // for test
-            [self logout];
+            //[self logout];
         }
     } else {
         // No, display the login page.

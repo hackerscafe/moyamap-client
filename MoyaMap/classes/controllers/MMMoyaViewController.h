@@ -17,6 +17,7 @@
 @interface MMMoyaViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UIView *footerView;
 @property (nonatomic, strong) MMMoyaTag *moyatag;
+@property (weak, nonatomic) IBOutlet UILabel *labelTag;
 - (IBAction)pressClose:(id)sender;
 
 @end
